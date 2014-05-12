@@ -67,3 +67,117 @@ function versioned_resource($relative_url){
 
   return $relative_url.$file_version;
 }
+
+/* Remove mot so menu
+-------------------------------------------------------------- */
+
+function remove_links_menu() {
+  /*remove_menu_page('index.php'); // Dashboard
+  remove_menu_page('edit.php'); // Posts
+  remove_menu_page('upload.php'); // Media
+  remove_menu_page('link-manager.php'); // Links
+  remove_menu_page('edit.php?post_type=page'); // Pages
+  remove_menu_page('edit-comments.php'); // Comments
+  remove_menu_page('themes.php'); // Appearance
+  remove_menu_page('plugins.php'); // Plugins
+  remove_menu_page('users.php'); // Users
+  remove_menu_page('tools.php'); // Tools
+  remove_menu_page('options-general.php'); // Settings*/
+}
+add_action( 'admin_menu', 'remove_links_menu' );
+
+/* Remove Post Via Email
+-------------------------------------------------------------- */
+
+add_filter( 'enable_post_by_email_configuration', '__return_false' );
+
+/* HIDE ADMIN COLOR SCHEME OPTION FROM USER PROFILE
+-------------------------------------------------------------- */
+
+function admin_color_scheme() {
+   global $_wp_admin_css_colors;
+   $_wp_admin_css_colors = 0;
+}
+add_action('admin_head', 'admin_color_scheme');
+
+/* REPLACE HOWDY ADMIN
+-------------------------------------------------------------- */
+
+function replace_howdy( $wp_admin_bar ) {
+    $my_account=$wp_admin_bar->get_node('my-account');
+    $newtitle = str_replace( 'Howdy,', 'Chào bạn,', $my_account->title );           
+    $wp_admin_bar->add_node( array(
+        'id' => 'my-account',
+        'title' => $newtitle,
+    ) );
+}
+add_filter( 'admin_bar_menu', 'replace_howdy',25 );
+
+/* CHANG DESKBOAR FOOTER
+-------------------------------------------------------------- */
+
+function remove_footer_admin () {
+    echo "Product of Devinition. Power by Wordpress";
+}
+add_filter('admin_footer_text', 'remove_footer_admin'); 
+
+/* REMOVE SCREEN OPTION
+-------------------------------------------------------------- */
+
+function remove_screen_options(){
+    return false;
+}
+//add_filter('screen_options_show_screen', 'remove_screen_options');
+
+/* REMOVE WORDPRESS ADMIN BAR
+-------------------------------------------------------------- */
+
+function wps_admin_bar() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('wp-logo');
+    $wp_admin_bar->remove_menu('about');
+    $wp_admin_bar->remove_menu('wporg');
+    $wp_admin_bar->remove_menu('documentation');
+    $wp_admin_bar->remove_menu('support-forums');
+    $wp_admin_bar->remove_menu('feedback');
+    $wp_admin_bar->remove_menu('view-site');
+}
+add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
+
+/* Disable Admin Bar for All Users Except for Administrators
+-------------------------------------------------------------- */
+
+add_action('after_setup_theme', 'remove_admin_bar');
+
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+  }
+}
+
+/* DISABLE UPDATE CORE
+-------------------------------------------------------------- */
+
+remove_action ('load-update-core.php', 'wp_update_themes');
+add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
+
+remove_action ('load-update-core.php', 'wp_update_plugins');
+add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );
+
+/*  WordPress add class to parent element if has submenu
+-------------------------------------------------------------- */
+
+function menu_set_dropdown( $sorted_menu_items, $args ) {
+    $last_top = 0;
+    foreach ( $sorted_menu_items as $key => $obj ) {
+        // it is a top lv item?
+        if ( 0 == $obj->menu_item_parent ) {
+            // set the key of the parent
+            $last_top = $key;
+        } else {
+            $sorted_menu_items[$last_top]->classes['dropdown'] = 'dropdown';
+        }
+    }
+    return $sorted_menu_items;
+}
+add_filter( 'wp_nav_menu_objects', 'menu_set_dropdown', 10, 2 );
