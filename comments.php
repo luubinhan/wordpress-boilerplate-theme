@@ -1,7 +1,7 @@
 <?php
 /**
- * @package WordPress
- * @subpackage HTML5_Boilerplate
+ * @package MyStyle
+ * @subpackage Devinition
  */
 
 // Do not delete these lines

@@ -1,4 +1,3 @@
 wordpress-boilerplate-theme
 ===========================
 
-Devinition
