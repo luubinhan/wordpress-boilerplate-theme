@@ -4,7 +4,10 @@
  * @subpackage Devinition
  */
 
-// Custom HTML5 Comment Markup
+
+/* Custom HTML5 Comment Markup
+-------------------------------------------------------------- */
+
 function mytheme_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li>
@@ -32,7 +35,10 @@ function mytheme_comment($comment, $args, $depth) {
 
 automatic_feed_links();
 
-// Widgetized Sidebar HTML5 Markup
+
+/* Widgetized Sidebar HTML5 Markup
+-------------------------------------------------------------- */
+
 if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
 		'before_widget' => '<section>',
@@ -42,21 +48,33 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
-// Custom Functions for CSS/Javascript Versioning
+
+/* Custom Functions for CSS/Javascript Versioning
+-------------------------------------------------------------- */
+
 $GLOBALS["TEMPLATE_URL"] = get_bloginfo('template_url')."/";
 $GLOBALS["TEMPLATE_RELATIVE_URL"] = wp_make_link_relative($GLOBALS["TEMPLATE_URL"]);
 
-// Add ?v=[last modified time] to style sheets
+
+/* Add ?v=[last modified time] to style sheets
+-------------------------------------------------------------- */
+
 function versioned_stylesheet($relative_url, $add_attributes=""){
   echo '<link rel="stylesheet" href="'.versioned_resource($relative_url).'" '.$add_attributes.'>'."\n";
 }
 
-// Add ?v=[last modified time] to javascripts
+
+/* Add ?v=[last modified time] to javascripts
+-------------------------------------------------------------- */
+
 function versioned_javascript($relative_url, $add_attributes=""){
   echo '<script src="'.versioned_resource($relative_url).'" '.$add_attributes.'></script>'."\n";
 }
 
-// Add ?v=[last modified time] to a file url
+
+/* Add ?v=[last modified time] to a file url
+-------------------------------------------------------------- */
+
 function versioned_resource($relative_url){
   $file = $_SERVER["DOCUMENT_ROOT"].$relative_url;
   $file_version = "";
@@ -67,6 +85,7 @@ function versioned_resource($relative_url){
 
   return $relative_url.$file_version;
 }
+
 
 /* Remove mot so menu
 -------------------------------------------------------------- */
@@ -83,6 +102,7 @@ function remove_links_menu() {
   remove_menu_page('users.php'); // Users
   remove_menu_page('tools.php'); // Tools
   remove_menu_page('options-general.php'); // Settings*/
+  remove_menu_page('ot-settings.php'); // Settings*/
 }
 add_action( 'admin_menu', 'remove_links_menu' );
 
@@ -90,6 +110,7 @@ add_action( 'admin_menu', 'remove_links_menu' );
 -------------------------------------------------------------- */
 
 add_filter( 'enable_post_by_email_configuration', '__return_false' );
+
 
 /* HIDE ADMIN COLOR SCHEME OPTION FROM USER PROFILE
 -------------------------------------------------------------- */
@@ -99,6 +120,7 @@ function admin_color_scheme() {
    $_wp_admin_css_colors = 0;
 }
 add_action('admin_head', 'admin_color_scheme');
+
 
 /* REPLACE HOWDY ADMIN
 -------------------------------------------------------------- */
@@ -113,6 +135,7 @@ function replace_howdy( $wp_admin_bar ) {
 }
 add_filter( 'admin_bar_menu', 'replace_howdy',25 );
 
+
 /* CHANG DESKBOAR FOOTER
 -------------------------------------------------------------- */
 
@@ -121,6 +144,7 @@ function remove_footer_admin () {
 }
 add_filter('admin_footer_text', 'remove_footer_admin'); 
 
+
 /* REMOVE SCREEN OPTION
 -------------------------------------------------------------- */
 
@@ -128,6 +152,7 @@ function remove_screen_options(){
     return false;
 }
 //add_filter('screen_options_show_screen', 'remove_screen_options');
+
 
 /* REMOVE WORDPRESS ADMIN BAR
 -------------------------------------------------------------- */
@@ -144,16 +169,17 @@ function wps_admin_bar() {
 }
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
+
 /* Disable Admin Bar for All Users Except for Administrators
 -------------------------------------------------------------- */
-
-add_action('after_setup_theme', 'remove_admin_bar');
 
 function remove_admin_bar() {
   if (!current_user_can('administrator') && !is_admin()) {
     show_admin_bar(false);
   }
 }
+add_action('after_setup_theme', 'remove_admin_bar');
+
 
 /* DISABLE UPDATE CORE
 -------------------------------------------------------------- */
@@ -163,6 +189,7 @@ add_filter( 'pre_site_transient_update_core', create_function( '$a', "return nul
 
 remove_action ('load-update-core.php', 'wp_update_plugins');
 add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );
+
 
 /*  WordPress add class to parent element if has submenu
 -------------------------------------------------------------- */
@@ -181,3 +208,95 @@ function menu_set_dropdown( $sorted_menu_items, $args ) {
     return $sorted_menu_items;
 }
 add_filter( 'wp_nav_menu_objects', 'menu_set_dropdown', 10, 2 );
+
+
+/*  Remove deskboard widget
+-------------------------------------------------------------- */
+
+function remove_dashboard_widgets()  {
+    $remove_defaults_widgets = array(
+        'dashboard_incoming_links' => array(
+            'page'    => 'dashboard',
+            'context' => 'normal'
+        ),
+        'dashboard_right_now' => array(
+            'page'    => 'dashboard',
+            'context' => 'normal'
+        ),
+        'dashboard_recent_drafts' => array(
+            'page'    => 'dashboard',
+            'context' => 'side'
+        ),
+        'dashboard_quick_press' => array(
+            'page'    => 'dashboard',
+            'context' => 'side'
+        ),
+        'dashboard_plugins' => array(
+            'page'    => 'dashboard',
+            'context' => 'normal'
+        ),
+        'dashboard_primary' => array(
+            'page'    => 'dashboard',
+            'context' => 'side'
+        ),
+        'dashboard_secondary' => array(
+            'page'    => 'dashboard',
+            'context' => 'side'
+        )
+    );
+ 
+    foreach ($remove_defaults_widgets as $wigdet_id => $options)  {
+        remove_meta_box($wigdet_id, $options['page'], $options['context']);
+    }
+}
+add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets'  );
+
+
+/*  Remove tags from posts listing screen
+-------------------------------------------------------------- */
+
+function wptutsplus_remove_posts_listing_tags( $columns ) {
+    unset( $columns[ 'tags' ] );
+    unset( $columns[ 'comments' ] );
+    unset( $columns['author'] );
+    return $columns;
+}
+add_action( 'manage_posts_columns', 'wptutsplus_remove_posts_listing_tags' );
+
+
+/*  Remove some column from pages listing screen
+-------------------------------------------------------------- */
+
+function pc_my_custom_pages_columns($columns) {
+ 
+  unset( $columns['author'] );
+  unset( $columns[ 'comments' ] );
+  unset( $columns[ 'date' ] );
+ 
+  return $columns;
+} 
+add_filter( 'manage_pages_columns', 'pc_my_custom_pages_columns' );
+
+/*  Remove some default widget
+-------------------------------------------------------------- */
+
+function pc_unregister_default_widgets() {
+    unregister_widget('WP_Widget_Pages');
+    unregister_widget('WP_Widget_Calendar');
+    unregister_widget('WP_Widget_Archives');
+    unregister_widget('WP_Widget_Links');
+    unregister_widget('WP_Widget_Categories');
+    unregister_widget('WP_Widget_RSS');
+    unregister_widget('WP_Widget_Tag_Cloud');
+    unregister_widget('WP_Widget_Meta');
+    unregister_widget('WP_Widget_Recent_Comments');
+    //unregister_widget('WP_Widget_Text');
+}
+add_action( 'widgets_init', 'pc_unregister_default_widgets', 11 );
+
+
+/*  Option Tree Plugin
+-------------------------------------------------------------- */
+
+add_filter( 'ot_theme_mode', '__return_true' );
+load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
