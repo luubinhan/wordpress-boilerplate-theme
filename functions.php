@@ -300,3 +300,31 @@ add_action( 'widgets_init', 'pc_unregister_default_widgets', 11 );
 
 add_filter( 'ot_theme_mode', '__return_true' );
 load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+
+
+/*  Add support for Featured Images
+-------------------------------------------------------------- */
+
+if (function_exists('add_theme_support')) {
+    add_theme_support('post-thumbnails');
+    add_image_size('index-categories', 694, 150, true);
+}
+
+
+/* Register WP Menus 
+-------------------------------------------------------------- */
+
+if ( function_exists( 'wp_nav_menu') ) {
+  add_theme_support( 'nav-menus' );
+  register_nav_menus( array( 'primary-menu' => __( 'Primary Menu', 'devinition' ) ) );
+  register_nav_menus( array( 'home-menu' => __( 'Home Menu', 'devinition' ) ) );
+}
+
+
+/* Custom Login Screen
+-------------------------------------------------------------- */
+
+function my_login_screen(){
+    echo '<link rel="stylesheet" type="text/css" href="' .$GLOBALS["TEMPLATE_URL"].'/css/wp-login.css'. '">';
+}
+add_action('login_enqueue_scripts','my_login_screen');

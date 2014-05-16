@@ -1,0 +1,12 @@
+.login h1 a{
+	background: url("images/logo.png") no-repeat center top ;
+	width: 150px;
+	background-size: 100% auto; 
+	-webkit-background-size: 100% auto; 
+}
+@media only screen and (max-width: 640px){
+	.login h1 a{
+		background-size: 50% auto; 
+		-webkit-background-size: 50% auto; 
+	}
+}
