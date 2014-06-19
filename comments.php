@@ -20,19 +20,19 @@
 <?php if ( have_comments() ) : ?>
   <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
-  <nav>
+
     <div><?php previous_comments_link() ?></div>
     <div><?php next_comments_link() ?></div>
-  </nav>
+
 
   <ol class="commentlist">
   <?php wp_list_comments('type=comment&callback=mytheme_comment'); ?>
   </ol>
 
-  <nav>
+
     <div><?php previous_comments_link() ?></div>
     <div><?php next_comments_link() ?></div>
-  </nav>
+
  <?php else : // this is displayed if there are no comments so far ?>
 
   <?php if ( comments_open() ) : ?>
@@ -45,10 +45,9 @@
   <?php endif; ?>
 <?php endif; ?>
 
-
 <?php if ( comments_open() ) : ?>
 
-<section id="respond">
+<div id="respond">
 
   <h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
 
@@ -98,6 +97,6 @@
   </form>
 
   <?php endif; // If registration required and not logged in ?>
-</section>
+</div>
 
 <?php endif; // if you delete this the sky will fall on your head ?>
