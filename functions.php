@@ -39,9 +39,9 @@ automatic_feed_links();
 
 if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
-		'before_widget' => '<section>',
+		'before_widget' => '<section class="widget-wrap">',
 		'after_widget' => '</section>',
-		'before_title' => '<h2 class="widgettitle">',
+		'before_title' => '<h2 class="widget-title">',
 		'after_title' => '</h2>',
 	));
 }
@@ -284,6 +284,12 @@ add_action( 'widgets_init', 'pc_unregister_default_widgets', 11 );
 
 add_filter( 'ot_theme_mode', '__return_true' );
 load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+
+// hide ot docs & settings
+//add_filter( 'ot_show_pages', '__return_false' ); 
+
+// Create Theme Options without using the UI Builder.
+//load_template( trailingslashit( get_template_directory() ) . 'option-tree/theme-options.php' );
 
 
 /*  Add support for Featured Images
