@@ -1155,6 +1155,10 @@
   ---------------------------------------------------*/
 #option-tree-settings-api .metabox-holder {
   overflow: hidden;
+  padding-top: 0;
+  background: #fff;
+  border-left: 1px solid #E1E1E1;
+  border-right: 1px solid #E1E1E1;
 }
 #option-tree-settings-api .postbox {
   background: #fff;
@@ -1166,19 +1170,11 @@
   padding: 0px !important;
 }
 #option-tree-settings-api > .ui-tabs {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  margin: 0px 5px 0 2px;
+  background: #f1f1f1;
+  margin: 0;
   min-width: 533px;
-  padding-bottom: 5px;
+  padding-bottom: 0;
   position: relative;
-  -webkit-box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-     -moz-box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-          box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-  -webkit-border-radius: 0 0 2px 2px;
-     -moz-border-radius: 0 0 2px 2px;
-          border-radius: 0 0 2px 2px;
 }
 
 /* -------------------------------------------------- 
@@ -1187,10 +1183,16 @@
 #option-tree-header-wrap {
   position: relative;
 }
+#option-tree-header-wrap:after {
+  clear: both;
+  display: block;
+  content: '';
+}
 #option-tree-header {
+
   background: #333;
   color: #bbb;
-  display: block;
+  display: none;
   margin: 11px 5px 0 2px;
   min-width: 535px;
   overflow: hidden;
@@ -1257,7 +1259,7 @@
   color: #fff;
 }
 .admin-color-light #option-tree-header li a {
-  color: #ccc;
+  color: #e1e1e1;
 }
 .admin-color-light #option-tree-header li a:hover {
   color: #eee;
@@ -1431,18 +1433,15 @@
   :: Sub Header
   ---------------------------------------------------*/
 #option-tree-sub-header { 
-  background: #fafafa; 
-  border: 1px solid #ccc; 
+  
   border-top: none; 
   display: block; 
-  margin: 0 5px 0 2px; 
+  margin: 0 5px 0 0; 
   min-width: 523px; 
   overflow: hidden; 
   padding: 5px; 
-  position: relative; 
-  -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.05);
-     -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.05);
-          box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #e1e1e1;
+  position: relative;   
 }
 
 /* -------------------------------------------------- 
@@ -1450,30 +1449,31 @@
   ---------------------------------------------------*/
 .wrap.settings-wrap .ui-tabs-nav { 
   float: left; 
-  list-style: none; 
-  margin: 0 0 0 -4px; 
-  padding: 1em 0; 
-  width: 151px; 
+  list-style: none;
+  width: 190px; 
+  margin: 0;
 }
 .wrap.settings-wrap .ui-tabs-nav li { 
-  border: 1px solid transparent; 
-  border-right-width: 0px; 
-  display: block; margin: 0; 
-  -webkit-border-radius: 2px 0 0 2px;
-     -moz-border-radius: 2px 0 0 2px;
-          border-radius: 2px 0 0 2px; 
+  
+  display: block; 
+  margin: 0; 
 }
 .wrap.settings-wrap .ui-tabs-nav li.ui-state-active { 
   background: #fff; 
-  border-color: #ccc; 
-  color: #000; 
+  color: #000;
+  margin-right: -1px;
 }
-.wrap.settings-wrap .ui-tabs-nav li a { 
-  color: #21759b; 
+.wrap.settings-wrap .ui-tabs-nav li a {   
   display: block; 
-  line-height: 18px; 
-  padding: 5px 5px 5px 12px; 
+  padding: 14px 10px; 
   text-decoration: none; 
+  border-bottom: 1px solid #E1E1E1;
+  color: #818181;
+  display: block;
+  font: bold 13px/18px sans-serif;
+  outline: medium none;
+  padding: 14px 10px;
+  text-transform: capitalize;
 }
 .wrap.settings-wrap .ui-tabs-nav li a:hover,
 .wrap.settings-wrap .ui-tabs-nav li.ui-state-active a { 
@@ -1499,7 +1499,7 @@
   :: Format Setting Label
   ---------------------------------------------------*/
 .format-setting-label {
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #e1e1e1;
   margin: 0 0 20px 0;
   padding: 5px 0px 1px 0px;
   width: 100%;
@@ -1618,7 +1618,7 @@
   position: relative;
 }
 #option-tree-settings-api blockquote:before {
-  color: #ccc;
+  color: #e1e1e1;
   content: "\201C";
   display: block;
   font-size: 400%;
@@ -1685,7 +1685,7 @@
 input.option-tree-ui-upload-input,
 input.option-tree-ui-input {
   background: #fff;
-  border: 1px solid #ccc !important;
+  border: 1px solid #e1e1e1 !important;
   line-height: 17px;
   font-size: 12px;
   margin-bottom: 5px !important;
@@ -1728,7 +1728,7 @@ div.option-tree-ui-media-wrap {
 }
 .option-tree-ui-media-wrap img {
   background: #fafafa;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   padding: 4px;
   display: block;
   float: left;
@@ -1774,7 +1774,7 @@ div.option-tree-ui-media-wrap {
 .textarea,
 .ot-metabox-wrapper textarea {
   width: 99.9%;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   font-family: Consolas, Monaco, monospace;
   line-height: 150%;
   outline: 0;
@@ -1815,7 +1815,7 @@ div.option-tree-ui-media-wrap {
   margin: 5px 0px; 
 }
 .option-tree-setting { 
-  border: 1px solid #ccc; 
+  border: 1px solid #e1e1e1; 
   overflow: hidden; 
   position: relative; 
   -webkit-border-radius: 2px;
@@ -2008,7 +2008,7 @@ div.option-tree-ui-media-wrap {
   background: #da4f41;
 }
 .ui-state-highlight {
-  border: 1px dashed #ccc;
+  border: 1px dashed #e1e1e1;
   display: block;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
@@ -2016,7 +2016,7 @@ div.option-tree-ui-media-wrap {
 }
 .option-tree-setting-body {
   background: #fff;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e1e1e1;
   display: none;
   padding: 10px;
   -webkit-border-bottom-right-radius: 2px;
@@ -2042,12 +2042,13 @@ li ul .format-setting-label {
   display: none;
   padding-top: 12px;
 }
-#option-tree-options-layouts-form {
-  left: 13px;
-  position: absolute;
-  top: 30px;
+#option-tree-options-layouts-form { 
   z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
+
 .option-tree-save-layout {
   float: left;
   padding: 10px 0;
@@ -2061,7 +2062,7 @@ li ul .format-setting-label {
   margin: 0;
 }
 .option-tree-active-layout {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #e1e1e1;
   float: left;
   padding: 10px 10px 10px 0;
   min-width: 126px;
@@ -2087,13 +2088,12 @@ li ul .format-setting-label {
   ---------------------------------------------------*/
 .select-wrapper {
   background: #fff url(../images/ot-select.png) no-repeat right center;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   display: block;
   float: left;
   font-size: 12px;
-  height: 29px;
+  height: 27px;
   margin: 0 5px 5px 0;
-  max-width: 100%;
   width: auto;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
@@ -2101,9 +2101,6 @@ li ul .format-setting-label {
   -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
      -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .select-wrapper:hover {
   background-image: url(../images/ot-select-hover.png);
@@ -2115,7 +2112,6 @@ select.option-tree-ui-select {
   font-size: 14px;
   height: 29px;
   margin: 0;
-  max-width: 100%;
   -moz-opacity: 0;
   opacity: 0;
   padding: 0 !important;
@@ -2131,9 +2127,7 @@ select.option-tree-ui-select option {
 .select-wrapper span {
   height: 27px;
   line-height: 27px;
-  overflow: hidden;
   padding-left: 7px;
-  padding-right: 27px;
   position: absolute;
   z-index: 2;
 }
@@ -2157,6 +2151,21 @@ select.option-tree-ui-select option {
 @-moz-document url-prefix() {
   #option-tree-options-layouts-form .select-wrapper {
     left: 250px;
+  }
+}
+
+/* Webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .select-wrapper span {
+    height: 26px;
+    line-height: 26px;
+  }
+}
+
+/* Opera 11 */
+@media not screen and (1) {
+  .select-wrapper {
+    height: 26px;
   }
 }
 
@@ -2203,7 +2212,7 @@ select.option-tree-ui-select option {
 }
 .type-radio-image .option-tree-ui-radio-images img {
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   cursor: pointer;
   opacity: 0.8;
   padding: 5px;
@@ -2232,7 +2241,7 @@ select.option-tree-ui-select option {
   ---------------------------------------------------*/
 .type-numeric-slider .format-setting-inner {
   background: #fcfcfc;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   min-height: 41px;
   padding: 5px;
   -webkit-box-sizing: border-box;
@@ -2254,7 +2263,7 @@ select.option-tree-ui-select option {
 }
 .ot-numeric-slider.ui-slider { 
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   margin: 8px 8px 0 8px; 
   position: relative; 
   -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
@@ -2377,7 +2386,7 @@ select.option-tree-ui-select option {
 .option-tree-ui-colorpicker-input-wrap .wp-color-picker,
 .option-tree-ui-colorpicker-input-wrap .wp-picker-default,
 .option-tree-ui-colorpicker-input-wrap .wp-picker-clear {
-  border-color: #ccc;
+  border-color: #e1e1e1;
   height: 29px !important;
   line-height: 27px !important;
   margin-top: 0px;
@@ -2401,7 +2410,7 @@ select.option-tree-ui-select option {
   line-height: 27px;
 }
 .option-tree-ui-colorpicker-input-wrap .wp-picker-container .iris-picker {
-  border-color: #ccc;
+  border-color: #e1e1e1;
   margin: 0px 5px 5px 0;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
@@ -2505,18 +2514,12 @@ select.option-tree-ui-select option {
 }
 .option-tree-ui-buttons {
   background: #fff;
-  border: 1px solid #ccc;
-  margin: 11px 5px 0 2px;
+  border: 1px solid #e1e1e1;
   min-width: 523px;
   overflow: hidden;
   padding: 5px;
   position: relative;
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-          box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  margin-left: 190px;
 }
 .option-tree-ui-buttons.alt {
   background: #f5f5f5;
@@ -2668,7 +2671,7 @@ ul.ot-gallery-list li img {
 @media only screen {
   .on-off-switch {
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #e1e1e1;
     color: #333;
     display: block;
     font-size: 12px;
@@ -2802,7 +2805,7 @@ ul.ot-gallery-list li img {
   text-align: center;
   text-shadow: 0 1px 0 white;
   background-color: #f7f7f7;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
 }
 .ot-input-prepend input {
   border-left: 0 !important;
@@ -2862,7 +2865,7 @@ ul.ot-gallery-list li img {
 #option-tree-settings-api pre.ace-chrome,
 #poststuff .type-css pre.ace-chrome {
   background-color: #fff !important;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
@@ -2887,7 +2890,7 @@ ul.ot-gallery-list li img {
   ---------------------------------------------------*/
 .ui-datepicker {
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   height: auto;
   margin: 5px auto 0;
   width: 216px;
@@ -2919,7 +2922,7 @@ ul.ot-gallery-list li img {
 }
 .ui-datepicker-prev, 
 .ui-datepicker-next {
-  color: #ccc;
+  color: #e1e1e1;
   display: inline-block;
   font-family: "option-tree-font";
   font-size: 16px;
@@ -2975,7 +2978,7 @@ a.ui-datepicker-next {
 }
 .ui-datepicker thead {
   background-color: #fafafa;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e1e1e1;
 }
 .ui-datepicker th {
   text-transform: uppercase;
@@ -2985,14 +2988,14 @@ a.ui-datepicker-next {
   text-shadow: 1px 0px 0px rgba(255,255,255,0.5);
 }
 .ui-datepicker tbody td {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #e1e1e1;
   padding: 0;
 }
 .ui-datepicker tbody td:last-child {
   border-right: 0px;
 }
 .ui-datepicker tbody tr {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e1e1e1;
 }
 .ui-datepicker tbody tr:last-child {
   border-bottom: 0px;
@@ -3051,7 +3054,7 @@ a.ui-datepicker-next {
 }
 .ui-datepicker .ui-datepicker-buttonpane button {
   background: #f7f7f7;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   color: #555;
   cursor: pointer;
   float: right;
@@ -3097,7 +3100,7 @@ a.ui-datepicker-next {
   float: left;
 }
 .ui-datepicker-calendar + .ui-datepicker-buttonpane {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e1e1e1;
 }
 .ui-datepicker-multi-2 {
   width: 432px !important;
@@ -3118,7 +3121,7 @@ a.ui-datepicker-next {
   font-size: 0;
 }
 .ui-datepicker-multi .ui-datepicker-buttonpane {
-  border-top: 1px solid #ccc !important;
+  border-top: 1px solid #e1e1e1 !important;
 }
 
 /* default color scheme */
@@ -3148,7 +3151,7 @@ a.ui-datepicker-next {
   color: #fff;
 }
 .admin-color-light .ui-datepicker .ui-widget-header a {
-  color: #ccc;
+  color: #e1e1e1;
 }
 .admin-color-light .ui-datepicker-prev,
 .admin-color-light .ui-datepicker-next:before {
@@ -3294,7 +3297,7 @@ a.ui-datepicker-next {
   :: Time Picker
   ---------------------------------------------------*/
 .ui-timepicker-div {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e1e1e1;
   padding: 0 .4em;
 }
 .ui-timepicker-div .ui-widget-content { 
@@ -3317,7 +3320,7 @@ a.ui-datepicker-next {
 }
 .ui-timepicker-div .ui-slider-horizontal .ui-slider-handle {
   background: #f7f7f7;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   color: #555;
   cursor: pointer;
   display: block;
@@ -3472,7 +3475,7 @@ a.ui-datepicker-next {
 }
 .ot-metabox-tabs.ui-tabs .ot-metabox-panels {
   background: white;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   margin: 7px 0 1px 0;
   min-height: 140px;
   overflow: hidden;
@@ -3504,7 +3507,7 @@ a.ui-datepicker-next {
 }
 .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
   background: white;
-  border-color: #ccc;
+  border-color: #e1e1e1;
   color: black;
 }
 .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a {
@@ -3548,7 +3551,7 @@ a.ui-datepicker-next {
 }
 .ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav,
 #side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e1e1e1;
   float: none;
   font-size: 12px !important;
   height: 30px;
@@ -3563,7 +3566,7 @@ a.ui-datepicker-next {
 .ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li.ui-state-default,
 #side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-default {
   background: #fafafa;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   border-width: 1px 1px 0px 1px;
   display: block;
   float: left;
@@ -3577,13 +3580,13 @@ a.ui-datepicker-next {
 .ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li:hover,
 #side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li:hover {
   background: #f1f1f1;
-  border: 1px solid #ccc;
+  border: 1px solid #e1e1e1;
   border-width: 1px 1px 0px 1px;
 }
 .ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li.ui-state-active,
 #side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
   background: white;
-  border-color: #ccc;
+  border-color: #e1e1e1;
   border-width: 1px 1px 0px 1px;
   color: black;
   padding: 0;
@@ -3638,7 +3641,7 @@ a.ui-datepicker-next {
     width: 100%;
   }
   .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e1e1e1;
     float: none;
     font-size: 12px !important;
     height: 30px;
@@ -3652,7 +3655,7 @@ a.ui-datepicker-next {
   }
   .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-default {
     background: #fafafa;
-    border: 1px solid #ccc;
+    border: 1px solid #e1e1e1;
     border-width: 1px 1px 0px 1px;
     display: block;
     float: left;
@@ -3665,12 +3668,12 @@ a.ui-datepicker-next {
   }
   .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li:hover {
     background: #f1f1f1;
-    border: 1px solid #ccc;
+    border: 1px solid #e1e1e1;
     border-width: 1px 1px 0px 1px;
   }
   .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
     background: white;
-    border-color: #ccc;
+    border-color: #e1e1e1;
     border-width: 1px 1px 0px 1px;
     color: black;
     padding: 0;
