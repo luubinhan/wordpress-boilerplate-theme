@@ -286,10 +286,10 @@ add_filter( 'ot_theme_mode', '__return_true' );
 load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
 
 // hide ot docs & settings
-//add_filter( 'ot_show_pages', '__return_false' ); 
+add_filter( 'ot_show_pages', '__return_false' ); 
 
 // Create Theme Options without using the UI Builder.
-//load_template( trailingslashit( get_template_directory() ) . 'option-tree/theme-options.php' );
+load_template( trailingslashit( get_template_directory() ) . 'theme-options.php' );
 
 
 /*  Add support for Featured Images
