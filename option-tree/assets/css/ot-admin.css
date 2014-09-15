@@ -1,6 +1,10 @@
 /* -------------------------------------------------- 
   :: OptionTree Font
   ---------------------------------------------------*/
+  
+  a:focus {
+    box-shadow: none;
+  }
 @font-face {
   font-family: "option-tree-font";
   src:url("../fonts/option-tree-font.eot");

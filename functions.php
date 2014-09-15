@@ -4,6 +4,18 @@
  * @subpackage Devinition
  */
 
+/* Load the theme-specific files, with support for overriding via a child theme.
+-------------------------------------------------------------- */
+
+$includes = array(
+  'includes/theme-js.php',        // Load JavaScript via wp_enqueue_script
+  'includes/sidebar-init.php',      // Initialize widgetized areas
+  'includes/theme-widgets.php',     // Theme widgets
+);
+
+foreach ( $includes as $i ) {
+  locate_template( $i, true );
+}
 
 /* Custom HTML5 Comment Markup
 -------------------------------------------------------------- */
@@ -283,13 +295,13 @@ add_action( 'widgets_init', 'pc_unregister_default_widgets', 11 );
 -------------------------------------------------------------- */
 
 add_filter( 'ot_theme_mode', '__return_true' );
-load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
 
 // hide ot docs & settings
 add_filter( 'ot_show_pages', '__return_false' ); 
 
 // Create Theme Options without using the UI Builder.
-load_template( trailingslashit( get_template_directory() ) . 'theme-options.php' );
+require( trailingslashit( get_template_directory() ) . 'includes/theme-options.php' );
 
 
 /*  Add support for Featured Images
@@ -311,6 +323,14 @@ if ( function_exists( 'wp_nav_menu') ) {
 }
 
 
+/* Admin StyleSheet
+-------------------------------------------------------------- */
+
+function my_admin_head() {
+   echo '<link rel="stylesheet" type="text/css" href="' .$GLOBALS["TEMPLATE_URL"].'/css/wp-admin.css'. '">';
+}
+add_action('admin_head', 'my_admin_head');
+
 /* Custom Login Screen
 -------------------------------------------------------------- */
 
@@ -318,3 +338,105 @@ function my_login_screen(){
     echo '<link rel="stylesheet" type="text/css" href="' .$GLOBALS["TEMPLATE_URL"].'/css/wp-login.css'. '">';
 }
 add_action('login_enqueue_scripts','my_login_screen');
+
+
+/**
+ * Recognized Social Links
+ *
+ * Returns an array of all recognized social links.
+ *
+ * @uses      apply_filters()
+ *
+ * @param     string  $field_id ID that's passed to the filters.
+ * @return    array
+ *
+ * @access    public
+ * @since     2.4.0
+ */
+if ( ! function_exists( 'ot_recognized_social_links' ) ) {
+
+  function ot_recognized_social_links( $field_id = '' ) {
+
+    return apply_filters( 'ot_recognized_social_links', array(
+      'facebook'    => __( 'Facebook', 'option-tree' ),
+      'twitter'     => __( 'Twitter', 'option-tree' ),
+      'google-plus' => __( 'Google+', 'option-tree' ),
+      'linkedin'    => __( 'LinkedIn', 'option-tree' ),
+      'vk'          => __( 'VK.com', 'option-tree' ),
+      'pinterest'   => __( 'Pinterest', 'option-tree' ),
+      'flickr'      => __( 'Flickr', 'option-tree' ),
+      'dribbble'    => __( 'Dribbble', 'option-tree' ),
+      'youtube'     => __( 'Youtube', 'option-tree' ),
+      'vimeo'       => __( 'Vimeo', 'option-tree' ),
+      'soundcloud'  => __( 'SoundCloud', 'option-tree' ),
+      'skype'       => __( 'Skype', 'option-tree' ),
+      'tumblr'      => __( 'Tumblr', 'option-tree' ),
+      'github'      => __( 'Github', 'option-tree' ),
+      'digg'        => __( 'Digg', 'option-tree' ),
+      'delicious'   => __( 'Delicious', 'option-tree' ),
+      'forrst'      => __( 'Forrst', 'option-tree' )
+    ), $field_id );
+
+  }
+
+}
+
+/**
+ * Social Links option type.
+ *
+ * See @ot_display_by_type to see the full list of available arguments.
+ *
+ * @param     array     An array of arguments.
+ * @return    string
+ *
+ * @access    public
+ * @since     2.4.0
+ */
+if ( ! function_exists( 'ot_type_social_links' ) ) {
+
+  function ot_type_social_links( $args = array() ) {
+
+    /* turns arguments array into variables */
+    extract( $args );
+
+    /* verify a description */
+    $has_desc = $field_desc ? true : false;
+
+    /* format setting outer wrapper */
+    echo '<div class="format-setting type-social-links ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+
+      /* description */
+      echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
+
+      /* format setting inner wrapper */
+      echo '<div class="format-setting-inner">';
+
+        /**
+         * load the default filterable social links if nothing 
+         * has been set in the choices array.
+         */
+        if ( empty( $field_choices ) ) {
+          $field_choices = array();
+          foreach( ot_recognized_social_links( $field_id ) as $value => $label ) {
+            $field_choices[] = array(
+              'value' => $value,
+              'label' => $label
+            );
+          }
+        }
+
+        /* Social links input */
+        foreach ( (array) $field_choices as $key => $choice ) {
+          echo '<p>';
+            echo '<label for="' . esc_attr( $field_id ) . '-' . esc_attr( $choice['value'] ) .'"><span class="icon ot-icon-' . $choice['value'] . '"> </span> ' . $choice['label'] . '</label>';
+            echo '<input type="text" name="' . esc_attr( $field_name ) . '[' . esc_attr( $choice['value'] ) . ']" id="' . esc_attr( $field_id ) . '-' . esc_attr( $choice['value'] ) .'" value="' . ( isset( $field_value[$choice['value']] ) ? esc_attr( $field_value[$choice['value']] ) : '' ) . '" class="widefat option-tree-ui-input ' . esc_attr( $field_class ) . '" />';
+          echo '</p>';
+        }
+
+      echo '</div>';
+
+    echo '</div>';
+
+  }
+
+}
