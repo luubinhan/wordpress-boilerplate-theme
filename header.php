@@ -15,11 +15,12 @@
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
        Remove this if you use the .htaccess -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
 
     <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
+    
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
@@ -35,7 +36,7 @@
 
     <!-- Wordpress Head Items -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
+    
     <?php wp_head(); ?>
 
 </head>
