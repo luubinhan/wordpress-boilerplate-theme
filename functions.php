@@ -440,3 +440,45 @@ if ( ! function_exists( 'ot_type_social_links' ) ) {
   }
 
 }
+
+
+/* http://www.plankdesign.com/blog/2013/10/making-wordpress-more-portable/
+-------------------------------------------------------------- */
+
+//shortcode for the install directory
+function site_url_shortcode(){
+    return site_url();
+}
+add_shortcode( 'site_url', 'site_url_shortcode' );
+
+//shortcode for the upload directory
+function upload_url_shortcode(){
+    $upload_dir = wp_upload_dir();
+    return $upload_dir['baseurl'];
+}
+add_shortcode( 'upload_url', 'upload_url_shortcode' );
+
+//shortcode for the theme directory
+function theme_url_shortcode(){
+    return get_stylesheet_directory_url();
+}
+add_shortcode( 'theme_url', 'theme_url_shortcode' );
+/*
+ * Force send_to_editor to use shortcodes for paths rather than hardcoded absolute links
+ */
+function environment_safe_send_to_editor($html){
+    //media uploads -> upload_url
+    $upload_dir = wp_upload_dir();
+    $html = str_replace($upload_dir['baseurl'], '[upload_url]', $html);
+
+    //theme assets -> theme_url
+    $html = str_replace(get_stylesheet_directory_uri(), '[theme_url]', $html);
+
+    //attachment pages -> site_url
+    $html = str_replace(site_url(),'http://www.plankdesign.com',$html);
+
+    return $html;
+}
+add_filter('image_send_to_editor','environment_safe_send_to_editor');
+add_filter('image_send_to_editor_url','environment_safe_send_to_editor');
+add_filter('media_send_to_editor','environment_safe_send_to_editor');
