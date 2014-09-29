@@ -301,7 +301,7 @@ require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.ph
 add_filter( 'ot_show_pages', '__return_false' ); 
 
 // Create Theme Options without using the UI Builder.
-require( trailingslashit( get_template_directory() ) . 'includes/theme-options.php' );
+//require( trailingslashit( get_template_directory() ) . 'includes/theme-options.php' );
 
 
 /*  Add support for Featured Images
