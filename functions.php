@@ -17,35 +17,6 @@ foreach ( $includes as $i ) {
   locate_template( $i, true );
 }
 
-/* Custom HTML5 Comment Markup
--------------------------------------------------------------- */
-
-function mytheme_comment($comment, $args, $depth) {
-   $GLOBALS['comment'] = $comment; ?>
-  <li>
-    <div <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-      <div class="comment-author vcard">
-        <?php echo get_avatar($comment,$size='48',$default='<path_to_url>' ); ?>
-        <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-        <time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a></time>
-        <?php edit_comment_link(__('(Edit)'),'  ','') ?>
-      </div>
-      <?php if ($comment->comment_approved == '0') : ?>
-        <em><?php _e('Your comment is awaiting moderation.') ?></em>
-        <br />
-      <?php endif; ?>
-
-      <?php comment_text() ?> 
-
-      <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>     
-   </div>
-  <!-- </li> is added by wordpress automatically -->
-<?php
-}
-
-automatic_feed_links();
-
-
 /* Widgetized Sidebar HTML5 Markup
 -------------------------------------------------------------- */
 
@@ -440,45 +411,3 @@ if ( ! function_exists( 'ot_type_social_links' ) ) {
   }
 
 }
-
-
-/* http://www.plankdesign.com/blog/2013/10/making-wordpress-more-portable/
--------------------------------------------------------------- */
-
-//shortcode for the install directory
-function site_url_shortcode(){
-    return site_url();
-}
-add_shortcode( 'site_url', 'site_url_shortcode' );
-
-//shortcode for the upload directory
-function upload_url_shortcode(){
-    $upload_dir = wp_upload_dir();
-    return $upload_dir['baseurl'];
-}
-add_shortcode( 'upload_url', 'upload_url_shortcode' );
-
-//shortcode for the theme directory
-function theme_url_shortcode(){
-    return get_stylesheet_directory_url();
-}
-add_shortcode( 'theme_url', 'theme_url_shortcode' );
-/*
- * Force send_to_editor to use shortcodes for paths rather than hardcoded absolute links
- */
-function environment_safe_send_to_editor($html){
-    //media uploads -> upload_url
-    $upload_dir = wp_upload_dir();
-    $html = str_replace($upload_dir['baseurl'], '[upload_url]', $html);
-
-    //theme assets -> theme_url
-    $html = str_replace(get_stylesheet_directory_uri(), '[theme_url]', $html);
-
-    //attachment pages -> site_url
-    $html = str_replace(site_url(),'http://www.plankdesign.com',$html);
-
-    return $html;
-}
-add_filter('image_send_to_editor','environment_safe_send_to_editor');
-add_filter('image_send_to_editor_url','environment_safe_send_to_editor');
-add_filter('media_send_to_editor','environment_safe_send_to_editor');
