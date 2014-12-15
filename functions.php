@@ -1,7 +1,6 @@
 <?php
 /**
  * @package MyStyle
- * @subpackage Devinition
  */
 
 /* Load the theme-specific files, with support for overriding via a child theme.
@@ -11,6 +10,7 @@ $includes = array(
   'includes/theme-js.php',        // Load JavaScript via wp_enqueue_script
   'includes/sidebar-init.php',      // Initialize widgetized areas
   'includes/theme-widgets.php',     // Theme widgets
+  //'includes/register-custom-post-type.php',     // Theme widgets
 );
 
 foreach ( $includes as $i ) {

@@ -28,8 +28,8 @@ function custom_theme_options() {
     ),
     'sections'        => array( 
         array(
-            'id'          => 'section_history',
-            'title'       => __( 'History', 'theme-options' )
+            'id'          => 'section_general',
+            'title'       => __( 'General', 'theme-options' )
         ),
         array(
             'id'          => 'section_slider',
@@ -52,27 +52,35 @@ function custom_theme_options() {
     'settings'        => array( 
       // ====== History ======
       array(
-        'id'          => 'history_list_item',
-        'label'       => __( 'History', 'theme-options' ),
-        'desc'        => __(''),
-        'type'        => 'list-item',
-        'section'     => 'section_history',
-        'operator'    => 'and',
-        'settings'    => array( 
-          array(
-            'id'          => 'history_upload',
-            'label'       => __( 'Upload', 'theme-options' ),  
-            'desc'        => __(''),
-            'type'        => 'upload',    
-            'operator'    => 'and'
-          ),
-          array(
-            'id'          => 'history_textarea',
-            'label'       => __( '' ),     
-            'type'        => 'textarea',              
-            'operator'    => 'and'
-          ),
-        )
+        'id'          => 'google_analytics_id',
+        'label'       => 'Google Analytics ID',
+        'desc'        => 'asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
+change the UA-XXXXX-X to be your site\'s ID',
+        'std'         => '',
+        'type'        => 'text',
+        'section'     => 'section_general',
+        'rows'        => '',
+        'post_type'   => '',
+        'taxonomy'    => '',
+        'min_max_step'=> '',
+        'class'       => '',
+        'condition'   => '',
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'site_logo',
+        'label'       => __( 'Logo', 'theme-options' ),
+        'desc'        => sprintf( __( '' ),
+        'std'         => '',
+        'type'        => 'upload',
+        'section'     => 'section_general',
+        'rows'        => '',
+        'post_type'   => '',
+        'taxonomy'    => '',
+        'min_max_step'=> '',
+        'class'       => '',
+        'condition'   => '',
+        'operator'    => 'and'
       ),
       // ====== SLIDE SHOW ======
       array(

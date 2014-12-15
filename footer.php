@@ -1,7 +1,6 @@
 <?php
 /**
  * @package MyStyle
- * @subpackage Devinition
  */
 ?>
 
@@ -20,13 +19,15 @@
 
   <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js") ?>
   <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js") ?>
-
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+  <?php if (ot_get_option('google_analytics_id')): ?>
+    <script>
+      var _gaq=[['_setAccount','<?php echo ot_get_option('google_analytics_id'); ?>'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  <?php endif ?>
+ 
 			   
   <?php wp_footer(); ?>
 

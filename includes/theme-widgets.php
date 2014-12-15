@@ -10,7 +10,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 /*-----------------------------------------------------------------------------------*/
 
 $widgets = array(							
-				'widget/widget-mystyle-recent-post.php'
+				'widget/widget-services.php'
 				);
 			
 foreach ( $widgets as $w ) {

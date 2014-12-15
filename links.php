@@ -1,7 +1,6 @@
 <?php
 /**
  * @package MyStyle
- * @subpackage Devinition
  */
 
 /*

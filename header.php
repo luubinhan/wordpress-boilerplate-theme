@@ -1,7 +1,6 @@
 <?php
 /**
  * @package MyStyle
- * @subpackage Devinition
  */
 ?>
 <!DOCTYPE html>
@@ -47,6 +46,6 @@
 
   <div id="container">
     <header role="banner">
-      <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+      <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?> <img src="<?php echo ot_get_option('site_logo'); ?>" alt=""></a></h1>
       <p class="description"><?php bloginfo('description'); ?></p>
     </header>
