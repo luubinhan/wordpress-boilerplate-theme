@@ -8,6 +8,9 @@ a:hover,
 a:active {
 	color: #00a5b6;
 }
+a:focus {
+	box-shadow: none;
+}
 input {
 	padding: 6px 5px;
 }
@@ -611,6 +614,12 @@ div.updated {
 .accordion-section-title:hover:after, .handlediv:hover, .item-edit:hover, .sidebar-name:hover .sidebar-name-arrow, .widget-action:hover {
 	color: #141719;
 }
+.view-switch > a:before {
+	color: #98a6ad;
+}
+.view-switch a:hover:before {
+	color: #141719;
+}
 @media (max-width: 782px ) {
 	#wpadminbar ul li#wp-admin-bar-site-name {
 		width: auto;
@@ -623,4 +632,12 @@ div.updated {
 	.wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle a {
 		background-color: #fff;
 	}
+}
+
+/* OPTION TREE */
+input.option-tree-ui-upload-input, input.option-tree-ui-input {
+	border-color: #cfdadd !important;
+}
+#option-tree-sub-header {
+	border-bottom-color: #cfdadd;
 }
