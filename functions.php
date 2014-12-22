@@ -151,11 +151,11 @@ add_action('after_setup_theme', 'remove_admin_bar');
 /* DISABLE UPDATE CORE
 -------------------------------------------------------------- */
 
-remove_action ('load-update-core.php', 'wp_update_themes');
+/*remove_action ('load-update-core.php', 'wp_update_themes');
 add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
 
 remove_action ('load-update-core.php', 'wp_update_plugins');
-add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );
+add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );*/
 
 
 /*  WordPress add class to parent element if has submenu
