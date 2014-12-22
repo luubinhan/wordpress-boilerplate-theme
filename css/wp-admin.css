@@ -121,6 +121,10 @@ table.widefat {
 .widefat th input[type="checkbox"] {
 	margin-top: 4px;
 }
+#adminmenu li.wp-menu-separator {
+	height: 0;
+	margin: 0;
+}
 html.wp-toolbar {
 	padding-top: 50px;
 }
