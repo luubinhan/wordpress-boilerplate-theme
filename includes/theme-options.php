@@ -70,7 +70,7 @@ change the UA-XXXXX-X to be your site\'s ID',
       array(
         'id'          => 'site_logo',
         'label'       => __( 'Logo', 'theme-options' ),
-        'desc'        => sprintf( __( '' ),
+        'desc'        => sprintf(''),
         'std'         => '',
         'type'        => 'upload',
         'section'     => 'section_general',
