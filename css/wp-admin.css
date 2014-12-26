@@ -4576,3 +4576,6 @@ input[type="checkbox"]:checked {
 	background-image: -o-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
 	background-image: linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
 }
+.widefat .check-column {
+	width: 4em;
+}
