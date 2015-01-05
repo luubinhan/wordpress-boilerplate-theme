@@ -54,16 +54,48 @@ class Dev_Services extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['full'] = strip_tags($new_instance['full']);
+		$instance['layout'] = strip_tags($new_instance['layout']);
+		$instance['radio'] = strip_tags($new_instance['radio']);
         return $instance;
 	}
 	
 	function form( $instance ) {
-		$title = isset($instance['title']) ? esc_attr($instance['title']) : 'Services';		
+		if( $instance) {
+		     $title = esc_attr($instance['title']);		 
+		     $select = esc_attr($instance['layout']); // Added
+		     $radio = esc_attr($instance['radio']); // Added
+		} else {
+		     $title = 'News Block';		    
+		     $select = ''; // Added
+		     $radio = ''; // Added
+		}		
 ?>
         <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
         <p><label for="<?php echo $this->get_field_id('full'); ?>"><?php _e('Show full post?'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('full'); ?>" name="<?php echo $this->get_field_name('full'); ?>" type="checkbox" cheked="<?php echo ($instance['full'] == true?'true':''); ?>" /></p> 
+        <p>
+			<label for="<?php echo $this->get_field_id('layout'); ?>"><?php _e('layout'); ?></label>
+			<select name="<?php echo $this->get_field_name('layout'); ?>" id="<?php echo $this->get_field_id('layout'); ?>" class="widefat">
+			<?php
+				$options = array('lorem', 'ipsum', 'dolorem');
+				foreach ($options as $option) {
+					echo '<option value="' . $option . '" id="' . $option . '"', $select == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+				}
+			?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('radio'); ?>"><?php _e('radio'); ?></label>
+			
+			<?php
+				$radios = array('radio1', 'radio2', 'radio3');
+				foreach ($radios as $radio1) {
+					echo '<input type="radio" name="'.$this->get_field_name('radio').'" value="' . $radio1 . '" id="' . $radio1 . '"', $radio == $radio1 ? ' checked="true"' : '', '>', $radio1, '</input>';
+				}
+			?>
+	
+		</p>
 <?php
 	}
 }

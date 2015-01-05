@@ -4579,3 +4579,66 @@ input[type="checkbox"]:checked {
 .widefat .check-column {
 	width: 4em;
 }
+#available-widgets .widget-top:hover, #widgets-left .widget-in-question .widget-top, #widgets-left .widget-top:hover, .widgets-chooser ul, div#widgets-right .widget-top:hover {
+	border-color: #23b7e5;
+}
+.acf-tab-group li.active a {
+	background: #fff;
+	color: #19a9d5;
+	border-color: #dee5e7;
+	
+}
+.acf-tab-group {
+	padding: 0;
+	margin: 0;
+	border-color: #dee5e7;
+}
+.acf-tab-group li a {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 14px;
+	background: transparent;	
+    border: none;
+    color: #000;
+    font: bold 13px/25px sans-serif;
+    border-right: 1px solid #dee5e7;
+}
+.acf-tab-group li {
+	margin: 0;
+}
+.acf-tab_group-show {
+	
+	background: #fff;
+}
+.acf_postbox.no_box > .inside > .field {
+
+
+}
+.acf_postbox.no_box .inside {
+	border-color: #dee5e7;
+	border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    background-color: #f6f8f8;
+}
+.acf_postbox.no_box > .inside > .field {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#postcustomstuff table {
+	border-color: #cfdadd;
+	background-color: #fff;
+}
+#postcustomstuff thead th {
+	background-color: #f6f8f8;
+}
+#wp-content-editor-tools {
+	background: transparent;
+}
+.html-active .switch-html, .tmce-active .switch-tmce {
+	height: 27px !important;
+}
+.wp-switch-editor {
+	height: 27px !important;
+	padding: 3px 15px 4px !important;	
+}
