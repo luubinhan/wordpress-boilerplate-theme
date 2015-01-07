@@ -3,7 +3,8 @@
  * @package MyStyle
  */
 ?>
-
+  <?php echo ot_get_option('footer_left'); ?>
+  <?php echo ot_get_option('footer_right'); ?>
     <p>
       <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a>
       and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>.
