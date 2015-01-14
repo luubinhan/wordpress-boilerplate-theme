@@ -4642,3 +4642,9 @@ input[type="checkbox"]:checked {
 	height: 27px !important;
 	padding: 3px 15px 4px !important;	
 }
+#screen-meta-links .screen-meta-toggle {
+	position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+}
