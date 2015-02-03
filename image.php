@@ -16,7 +16,7 @@ get_header(); ?>
       <p class="attachment"><a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?></a></p>
       <p class="caption"><?php if ( !empty($post->post_excerpt) ) the_excerpt(); // this is the "caption" ?></p>
 
-      <?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
+      <?php the_content(); ?>
 
 
       <div><?php previous_image_link() ?></div>

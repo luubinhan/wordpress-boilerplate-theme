@@ -23,15 +23,18 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
-
-    <?php versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."css/normalize.css") ?>
-    <?php versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."css/main.css") ?>
     
-    <!-- Wordpress Templates require a style.css in theme root directory -->
-    <?php versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css") ?>
+    <!-- REGISTER STYLESHEET -->
+    <?php wp_register_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); ?>
+    <!-- END of REGISTER STYLESHEET -->
     
-    <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-    <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js") ?>
+    <!-- REGISTER JAVASCRIPT -->
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js" ); ?>
+    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" ); ?>
+    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" ); ?>
+    <!-- END of REGISTER JAVASCRIPT --> 
 
     <!-- Wordpress Head Items -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
