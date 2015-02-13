@@ -25,15 +25,16 @@
     <link rel="icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
     
     <!-- REGISTER STYLESHEET -->
-    <?php wp_register_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); ?>
+    <?php wp_enqueue_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); ?>
     <!-- END of REGISTER STYLESHEET -->
     
     <!-- REGISTER JAVASCRIPT -->
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script>window.jQuery || document.write('<script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js" ); ?>
-    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" ); ?>
-    <?php wp_register_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" ); ?>
+
+    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js" ); ?>
+    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" ); ?>
+    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" ); ?>
     <!-- END of REGISTER JAVASCRIPT --> 
 
     <!-- Wordpress Head Items -->
