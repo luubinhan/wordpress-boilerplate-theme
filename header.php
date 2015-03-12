@@ -13,8 +13,7 @@
 
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
        Remove this if you use the .htaccess -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 
     <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
     
@@ -24,17 +23,22 @@
     <link rel="shortcut icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
     
-    <!-- REGISTER STYLESHEET -->
-    <?php wp_enqueue_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); ?>
-    <!-- END of REGISTER STYLESHEET -->
     
-    <!-- REGISTER JAVASCRIPT -->
+    <?php 
+      // = REGISTER STYLESHEET =
+      wp_enqueue_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); 
+    ?>
+    
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script>window.jQuery || document.write('<script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
-    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js" ); ?>
-    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" ); ?>
-    <?php wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" ); ?>
+    <?php 
+      // = REGISTER JAVASCRIPT =
+      wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.6.1.min.js" ); 
+      wp_enqueue_script( "plugins", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" );
+      wp_enqueue_script( "main", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" );
+    ?>
+    
     <!-- END of REGISTER JAVASCRIPT --> 
 
     <!-- Wordpress Head Items -->
@@ -44,7 +48,7 @@
 
 </head>
 <body <?php body_class(); ?>>
-  <!--[if lt IE 7]>
+  <!--[if lt IE 8]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
   <![endif]-->
 

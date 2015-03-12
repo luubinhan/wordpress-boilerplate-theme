@@ -17,19 +17,6 @@ foreach ( $includes as $i ) {
   locate_template( $i, true );
 }
 
-/* Widgetized Sidebar HTML5 Markup
--------------------------------------------------------------- */
-
-if ( function_exists('register_sidebar') ) {
-	register_sidebar(array(
-		'before_widget' => '<section class="widget-wrap">',
-		'after_widget' => '</section>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2>',
-	));
-}
-
-
 /* Custom Functions for CSS/Javascript Versioning
 -------------------------------------------------------------- */
 
@@ -69,15 +56,6 @@ function admin_color_scheme() {
    $_wp_admin_css_colors = 0;
 }
 add_action('admin_head', 'admin_color_scheme');
-
-
-/* CHANG DESKBOAR FOOTER
--------------------------------------------------------------- */
-
-function remove_footer_admin () {
-    echo "Product of Devinition. Power by Wordpress";
-}
-add_filter('admin_footer_text', 'remove_footer_admin'); 
 
 
 /* REMOVE SCREEN OPTION
