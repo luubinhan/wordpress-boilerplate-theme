@@ -9,8 +9,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 // Register widgetized areas
 // Get sidebar: dynamic_sidebar('[id]');
 if (!function_exists( 'the_widgets_init')) {
-	function the_widgets_init() {
-		
+	function the_widgets_init() {		
 		
 	    if ( !function_exists( 'register_sidebar') )
 	    return;
@@ -30,8 +29,7 @@ if (!function_exists( 'the_widgets_init')) {
 			'description'   => "", 
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget'  => '</div>'
-	    ));    
-	    
+	    ));    	    
 	}
 }
 

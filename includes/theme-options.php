@@ -54,8 +54,7 @@ function custom_theme_options() {
       array(
         'id'          => 'google_analytics_id',
         'label'       => 'Google Analytics ID',
-        'desc'        => 'asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
-change the UA-XXXXX-X to be your site\'s ID',
+        'desc'        => 'asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet change the UA-XXXXX-X to be your site\'s ID',
         'std'         => '',
         'type'        => 'text',
         'section'     => 'section_general',

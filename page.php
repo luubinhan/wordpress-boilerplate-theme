@@ -1,10 +1,10 @@
 <?php
-/**
- * @package MyStyle
- */
-
-get_header(); ?>
-
+// File Security Check
+if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
+    die ( 'You do not have sufficient permissions to access this page' );
+}
+?>
+<?php get_header(); ?>
 <div id="main" role="main">
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <div <?php post_class('page-container') ?> id="post-<?php the_ID(); ?>">   
@@ -21,5 +21,4 @@ get_header(); ?>
 </div>
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
