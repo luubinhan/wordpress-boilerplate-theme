@@ -5,11 +5,8 @@
  * The sitemap page template displays a user-friendly overview
  * of the content of your website.
  *
- * @package WooFramework
- * @subpackage Template
  */
-
- global $woo_options; 
+ 
  get_header();
 ?>
        

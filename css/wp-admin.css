@@ -262,8 +262,7 @@ div.dashboard-widget-submit input:hover,
 	color: #1797be;
 }
 
-/* Mau icon menu active,
-hover */
+/* Mau icon menu active, hover */
 #adminmenu li:hover div.wp-menu-image:before {
 	color: #cadd09;
 }
