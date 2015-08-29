@@ -10,12 +10,12 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 /*---------------------------------------------------------------------------------*/
 class Dev_Contact extends WP_Widget {
 			
-	function Dev_Contact() {
+	function __construct() {
     	$widget_ops = array(
 			'classname'   => 'widget_contact', 
 			'description' => __('Contact')
 		);
-		parent::WP_Widget( false, __( 'Contact', '' ), $widget_ops );    	
+		parent::__construct( false, __( 'Contact', '' ), $widget_ops );    	
 	}
 
 	function widget($args, $instance) {
