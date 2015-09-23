@@ -7,7 +7,7 @@ Lasted Update 3-4-2015
 
 # WP Plugins
 
-* Option Tree 2.5.1
+* Option Tree 2.5.5
 
 # JS
 

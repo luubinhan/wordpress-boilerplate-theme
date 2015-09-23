@@ -6,11 +6,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 ?>
   <?php echo ot_get_option('footer_left'); ?>
   <?php echo ot_get_option('footer_right'); ?>
-    <p>
-      <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a>
-      and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>.
-      <!-- <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds. -->
-    </p>
+    
 </div> <!--! end of #container -->
 
   <?php if (ot_get_option('google_analytics_id')): ?>
