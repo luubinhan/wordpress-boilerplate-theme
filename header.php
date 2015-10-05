@@ -54,10 +54,7 @@
       <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?> <img src="<?php echo ot_get_option('site_logo'); ?>" alt=""></a></h1>
       <p class="description"><?php bloginfo('description'); ?></p>
     </header>
-<?php  
-  $mystyle_social_links = ot_get_option('mystyle_social_links');
-  echo $mystyle_social_links['facebook'];
-?>
+
 <!-- MENU -->
 <?php 
   if ( function_exists( 'has_nav_menu' ) && has_nav_menu( 'primary-menu' ) ) {

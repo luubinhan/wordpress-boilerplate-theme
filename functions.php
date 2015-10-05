@@ -10,6 +10,7 @@ $includes = array(
   'includes/theme-js.php',        // Load JavaScript via wp_enqueue_script
   'includes/sidebar-init.php',      // Initialize widgetized areas
   'includes/theme-widgets.php',     // Theme widgets
+  //'includes/register-acf-field.php',     // Theme widgets
   //'includes/register-custom-post-type.php',     // Theme widgets
 );
 
@@ -267,6 +268,10 @@ function my_theme_register_required_plugins() {
       'name' => 'Velvet Blues Update URLs',
       'slug' => 'velvet-blues-update-urls',
     ),
+    array(
+      'name' => 'Advanced Custom Fields',
+      'slug' => 'advanced-custom-fields',
+    ),
   );
   /** Change this to your theme text domain, used for internationalising strings */
   $theme_text_domain = 'tgmpa';
@@ -316,113 +321,19 @@ function my_login_screen(){
 }
 add_action('login_enqueue_scripts','my_login_screen');
 
+/* jQuery Enqueue
+-------------------------------------------------------------- */
 
-/**
- * Recognized Social Links
- *
- * Returns an array of all recognized social links.
- *
- * @uses      apply_filters()
- *
- * @param     string  $field_id ID that's passed to the filters.
- * @return    array
- *
- * @access    public
- * @since     2.4.0
- */
-if ( ! function_exists( 'ot_recognized_social_links' ) ) {
-
-  function ot_recognized_social_links( $field_id = '' ) {
-
-    return apply_filters( 'ot_recognized_social_links', array(
-      'facebook'    => __( 'Facebook', 'option-tree' ),
-      'twitter'     => __( 'Twitter', 'option-tree' ),
-      'google-plus' => __( 'Google+', 'option-tree' ),
-      'linkedin'    => __( 'LinkedIn', 'option-tree' ),
-      'vk'          => __( 'VK.com', 'option-tree' ),
-      'pinterest'   => __( 'Pinterest', 'option-tree' ),
-      'flickr'      => __( 'Flickr', 'option-tree' ),
-      'dribbble'    => __( 'Dribbble', 'option-tree' ),
-      'youtube'     => __( 'Youtube', 'option-tree' ),
-      'vimeo'       => __( 'Vimeo', 'option-tree' ),
-      'soundcloud'  => __( 'SoundCloud', 'option-tree' ),
-      'skype'       => __( 'Skype', 'option-tree' ),
-      'tumblr'      => __( 'Tumblr', 'option-tree' ),
-      'github'      => __( 'Github', 'option-tree' ),
-      'digg'        => __( 'Digg', 'option-tree' ),
-      'delicious'   => __( 'Delicious', 'option-tree' ),
-      'forrst'      => __( 'Forrst', 'option-tree' )
-    ), $field_id );
-
-  }
-
-}
-
-/**
- * Social Links option type.
- *
- * See @ot_display_by_type to see the full list of available arguments.
- *
- * @param     array     An array of arguments.
- * @return    string
- *
- * @access    public
- * @since     2.4.0
- */
-if ( ! function_exists( 'ot_type_social_links' ) ) {
-
-  function ot_type_social_links( $args = array() ) {
-
-    /* turns arguments array into variables */
-    extract( $args );
-
-    /* verify a description */
-    $has_desc = $field_desc ? true : false;
-
-    /* format setting outer wrapper */
-    echo '<div class="format-setting type-social-links ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
-
-      /* description */
-      echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
-
-      /* format setting inner wrapper */
-      echo '<div class="format-setting-inner">';
-
-        /**
-         * load the default filterable social links if nothing 
-         * has been set in the choices array.
-         */
-        if ( empty( $field_choices ) ) {
-          $field_choices = array();
-          foreach( ot_recognized_social_links( $field_id ) as $value => $label ) {
-            $field_choices[] = array(
-              'value' => $value,
-              'label' => $label
-            );
-          }
-        }
-
-        /* Social links input */
-        foreach ( (array) $field_choices as $key => $choice ) {
-          echo '<p>';
-            echo '<label for="' . esc_attr( $field_id ) . '-' . esc_attr( $choice['value'] ) .'"><span class="icon ot-icon-' . $choice['value'] . '"> </span> ' . $choice['label'] . '</label>';
-            echo '<input type="text" name="' . esc_attr( $field_name ) . '[' . esc_attr( $choice['value'] ) . ']" id="' . esc_attr( $field_id ) . '-' . esc_attr( $choice['value'] ) .'" value="' . ( isset( $field_value[$choice['value']] ) ? esc_attr( $field_value[$choice['value']] ) : '' ) . '" class="widefat option-tree-ui-input ' . esc_attr( $field_class ) . '" />';
-          echo '</p>';
-        }
-
-      echo '</div>';
-
-    echo '</div>';
-
-  }
-
-}
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 function my_jquery_enqueue() {
    wp_deregister_script('jquery');
    wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-1.11.2.min.js", false, null);
    wp_enqueue_script('jquery');
 }
+
+/* Define support woocommerce
+-------------------------------------------------------------- */
+
 add_action('after_setup_theme','woocommerce_support');
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
