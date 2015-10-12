@@ -26,7 +26,7 @@ foreach ( $widgets as $w ) {
 /*---------------------------------------------------------------------------------*/
 if (!function_exists( 'mystyle_deregister_widgets')) {
 	function mystyle_deregister_widgets(){
-	    unregister_widget( 'WP_Widget_Search' );         
+	    //unregister_widget( 'WP_Widget_Search' );         
 	}
 }
 add_action( 'widgets_init', 'mystyle_deregister_widgets' );  

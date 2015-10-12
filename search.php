@@ -8,19 +8,13 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 
   <?php if (have_posts()) : ?>
 
-    <h1 class="search-title">Search Results</h1>
+    <h1 class="search-title"><?php _e("Found:"); ?></h1>
     <div class="search-posts">
-      <?php while (have_posts()) : the_post(); ?>
-        <div class="search-post">
-          <h4 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-          <time><?php the_time('l, F jS, Y') ?></time>
-          <div >
-            <?php the_tags('Tags: ', ', ', '<br />'); ?> 
-            Posted in <?php the_category(', ') ?>          
-          </div>
-          <div class="post-excerpt"><?php the_excerpt(); ?></div>
-        </div><!-- search-post-result -->
-      <?php endwhile; ?>
+      <?php 
+        while (have_posts()) : the_post();  
+          get_template_part("content","post");
+        endwhile; 
+      ?>
     </div><!-- search-posts -->
   <?php else : ?>
     <div class="no-post-found">
