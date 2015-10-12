@@ -11,5 +11,4 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
       <p><span frown>:(</span></p>
   </div>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

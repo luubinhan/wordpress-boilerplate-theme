@@ -32,8 +32,9 @@
     <?php 
       // = REGISTER JAVASCRIPT =
       wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.8.0.min.js" ); 
-      wp_enqueue_script( "plugins", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js" );
-      wp_enqueue_script( "main", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js" );
+      wp_enqueue_script( "plugins", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js","jquery","", true );
+      wp_enqueue_script( "main", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js","jquery","", true );
+      
     ?>
     
     <!-- END of REGISTER JAVASCRIPT --> 
