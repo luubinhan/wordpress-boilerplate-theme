@@ -3,7 +3,7 @@ wordpress-boilerplate-theme
 
 Customized by luubinhan1989@gmail.com
 
-Lasted Update 3-4-2015  
+Lasted Update 12-10-2015  
 
 # WP Plugins
 
@@ -12,5 +12,10 @@ Lasted Update 3-4-2015
 # JS
 
 * Modernizr 2.8.0 
+
+# Recommend Plugins
+
+* Product filter: YITH WooCommerce Ajax Product Filter, https://wordpress.org/plugins/yith-woocommerce-ajax-navigation/
+* Front-End Login: Ultimate member, https://wordpress.org/plugins/ultimate-member/
 
 
