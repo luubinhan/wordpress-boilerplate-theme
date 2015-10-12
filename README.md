@@ -19,3 +19,4 @@ Lasted Update 12-10-2015
 * Front-End Login: Ultimate member, https://wordpress.org/plugins/ultimate-member/
 
 
+* Nicer select http://silviomoreto.github.io/bootstrap-select/ or https://select2.github.io/examples.html, http://gregfranko.com/jquery.selectBoxIt.js
