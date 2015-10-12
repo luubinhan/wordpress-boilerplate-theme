@@ -43,8 +43,15 @@ function remove_links_menu() {
   remove_menu_page('tools.php'); // Tools
   remove_menu_page('options-general.php'); // Settings*/
   remove_menu_page('ot-settings.php'); // Settings*/
+
 }
 add_action( 'admin_menu', 'remove_links_menu' );
+
+function remove_customize_page(){
+  global $submenu;
+  unset($submenu['themes.php'][6]); // remove customize link
+}
+add_action( 'admin_menu', 'remove_customize_page');
 
 /* Remove Post Via Email
 -------------------------------------------------------------- */
@@ -83,6 +90,7 @@ function wps_admin_bar() {
     $wp_admin_bar->remove_menu('support-forums');
     $wp_admin_bar->remove_menu('feedback');
     $wp_admin_bar->remove_menu('view-site');
+    $wp_admin_bar->remove_menu('customize');
 }
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
