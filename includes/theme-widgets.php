@@ -12,7 +12,9 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 $widgets = array(							
 				'widget/widget-services.php',
 				'widget/widget-socials.php',
-				'widget/widget-contact.php'
+				'widget/widget-contact.php',
+				'widget/widget-blog.php',
+
 				);
 			
 foreach ( $widgets as $w ) {
