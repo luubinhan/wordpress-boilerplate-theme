@@ -8,28 +8,29 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 /*---------------------------------------------------------------------------------*/
 /* Recent Products Widget */
 /*---------------------------------------------------------------------------------*/
-class Dev_Contact extends WP_Widget {
+class Dev_Blog extends WP_Widget {
 			
 	function __construct() {
     	$widget_ops = array(
 			'classname'   => 'widget_contact', 
-			'description' => __('Dev :: Contact')
+			'description' => __('Dev :: Blog')
 		);
-		parent::__construct( false, __( 'Dev :: Contact', '' ), $widget_ops );    	
+		parent::__construct( false, __( 'Dev :: Blog', '' ), $widget_ops );    	
 	}
 
 	function widget($args, $instance) {
            
 			extract( $args );		
-			$title = apply_filters( 'widget_title', empty($instance['title']) ? 'Dev :: Contact' : $instance['title'], $instance, $this->id_base);
+			$title = apply_filters( 'widget_title', empty($instance['title']) ? 'Dev :: Blog' : $instance['title'], $instance, $this->id_base);
 			
 			echo $before_widget;
-
 			// Widget title
 			echo $before_title;
 			echo $instance["title"];		
 			echo $after_title;	
-			include( locate_template('widget/widget-contact-front.php') );
+
+				include( locate_template('widget/widget-blog-front.php') );
+				
 			echo $after_widget;
 	}
 	
@@ -45,7 +46,7 @@ class Dev_Contact extends WP_Widget {
 		     $title = esc_attr($instance['title']);		 
 
 		} else {
-		     $title = 'Dev :: Contact';	
+		     $title = 'Dev :: Blog';	
 		}		
 ?>
         <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
@@ -55,5 +56,5 @@ class Dev_Contact extends WP_Widget {
 	}
 }
 
-register_widget( 'Dev_Contact' );
+register_widget( 'Dev_Blog' );
 ?>

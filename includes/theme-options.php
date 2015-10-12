@@ -30,11 +30,7 @@ function custom_theme_options() {
         array(
             'id'          => 'section_general',
             'title'       => __( 'General', 'theme-options' )
-        ),
-        array(
-            'id'          => 'section_slider',
-            'title'       => __( 'Slider', 'theme-options' )
-        ),
+        ),      
         array(
             'id'          => 'section_contact',
             'title'       => __( 'Contact Info', 'theme-options' )
@@ -80,26 +76,7 @@ function custom_theme_options() {
         'class'       => '',
         'condition'   => '',
         'operator'    => 'and'
-      ),
-      // ====== SLIDE SHOW ======
-      array(
-        'id'          => 'slider_list_item',
-        'label'       => __( 'Slider', 'theme-options' ),
-        'desc'        => __(''),
-        'type'        => 'list-item',
-        'section'     => 'section_slider',
-        'operator'    => 'and',
-        'settings'    => array( 
-          array(
-            'id'          => 'slider_upload',
-            'label'       => __( 'Upload', 'theme-options' ),  
-            'desc'        => __(''),
-            'type'        => 'upload',    
-            'operator'    => 'and'
-          ),
-        )
-      ),
-      
+      ),    
       // ====== CONTACT ======
       array(
         'id'          => 'contact_adrress',

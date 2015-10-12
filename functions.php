@@ -11,6 +11,8 @@ $includes = array(
   'includes/sidebar-init.php',      // Initialize widgetized areas
   'includes/theme-widgets.php',     // Theme widgets
   'includes/custom-post-type/cpt-team.php',
+  'includes/custom-post-type/cpt-portfolio.php',
+  'includes/custom-post-type/cpt-quote.php',
   //'includes/register-acf-field.php',     // Theme widgets
   //'includes/register-custom-post-type.php',     // Theme widgets
 );

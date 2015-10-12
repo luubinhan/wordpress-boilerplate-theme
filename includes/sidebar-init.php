@@ -17,18 +17,20 @@ if (!function_exists( 'the_widgets_init')) {
 	    register_sidebar(array( 
 			'name'          => 'Primary',
 			'id'            => 'primary',
-			'description'   => "Normal full width sidebar", 
-			'before_widget' => '<div id="%1$s" class="widget moduletable %2$s">',
+			'description'   => "This sidebar display on Blog List, Blog Single", 
+			'before_widget' => '<div id="%1$s" class="widget widget-container %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
-			'after_title'   => '</h3>'
+			'before_title'  => '<div class="widget-title">',
+			'after_title'   => '</div>'
 	    ));
 	    register_sidebar(array( 
-			'name'          => 'Home Primary',
+			'name'          => 'Home',
 			'id'            => 'home-primary',
-			'description'   => "", 
-			'before_widget' => '<div id="%1$s" class="%2$s">',
-			'after_widget'  => '</div>'
+			'description'   => "This sidebar display on Home Page", 
+			'before_widget' => '<div id="%1$s" class="widget widget-container %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title">',
+			'after_title'   => '</div>'
 	    ));    	    
 	}
 }

@@ -13,15 +13,15 @@ class Dev_Services extends WP_Widget {
 	function __construct() {
     	$widget_ops = array(
 			'classname'   => 'widget_services', 
-			'description' => __('Services ')
+			'description' => __('Dev :: Services ')
 		);
-		parent::__construct( false, __( 'Services ', 'devinition' ), $widget_ops );    	
+		parent::__construct( false, __( 'Dev :: Services ', 'devinition' ), $widget_ops );    	
 	}
 
 	function widget($args, $instance) {
            
 			extract( $args );		
-			$title = apply_filters( 'widget_title', empty($instance['title']) ? 'Services' : $instance['title'], $instance, $this->id_base);
+			$title = apply_filters( 'widget_title', empty($instance['title']) ? 'Dev :: Services' : $instance['title'], $instance, $this->id_base);
 			
 			echo $before_widget;
 			
