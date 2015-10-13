@@ -25,6 +25,7 @@
     
     <?php 
       // = REGISTER STYLESHEET =
+      wp_enqueue_style( "bootstrap-style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."css/bootstrap.css" );       
       wp_enqueue_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); 
     ?>
     
@@ -32,6 +33,7 @@
     <?php 
       // = REGISTER JAVASCRIPT =
       wp_enqueue_script( "modernizr", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/modernizr-2.8.0.min.js" ); 
+      wp_enqueue_script( "bootstrap-script", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/vendor/bootstrap.js","jquery","", true ); 
       wp_enqueue_script( "plugins", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js","jquery","", true );
       wp_enqueue_script( "main", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js","jquery","", true );
       
@@ -62,9 +64,11 @@
     $args = array(
       'theme_location' => 'primary-menu',
       'container'      => false,
-      'menu'           => 'primary-menu',                
-      'menu_class'     => '',
-      'depth'          => 1
+      'menu'           => 'primary-menu',                      
+      'depth'          => 2,
+      'menu_class'     => 'nav navbar-nav',
+      'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
+      'walker'         => new wp_bootstrap_navwalker()
     );
     wp_nav_menu( $args );
   };  
