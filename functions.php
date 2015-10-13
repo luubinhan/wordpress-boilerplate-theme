@@ -7,7 +7,6 @@
 -------------------------------------------------------------- */
 
 $includes = array(
-  'includes/theme-js.php',        // Load JavaScript via wp_enqueue_script
   'includes/sidebar-init.php',      // Initialize widgetized areas
   'includes/theme-widgets.php',     // Theme widgets
   'includes/custom-post-type/cpt-team.php',
