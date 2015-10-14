@@ -298,7 +298,7 @@ pre code {
 -------------------------------------------------------------- */
 
 form {
-  margin: 0 0 20px;
+  margin: 0;
 }
 fieldset {
   padding: 0;
@@ -564,3 +564,21 @@ img.align-center{margin:0px auto;}
 .align-right{text-align:right!important;}
 .align-center{text-align:center!important;}
 table.style1 tr td{vertical-align:top;padding:0 10px 5px 0;text-align:left;}
+
+/* widget_blog
+-------------------------------------------------------------- */
+
+.post-widget-caption {
+  margin-bottom: 5px;
+}
+.post-date {
+  color: #666;
+  display: inline-block;
+}
+.post-category {
+  display: inline-block;
+}
+.post-meta {
+  margin-bottom: 15px;
+}
+/* widget_blog -------------------------------------------- */

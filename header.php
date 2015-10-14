@@ -51,27 +51,42 @@
   <!--[if lt IE 8]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
   <![endif]-->
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?> <img src="<?php echo ot_get_option('site_logo'); ?>" alt=""></a>
+      </div>
 
-  <div id="container">
-    <header role="banner">
-      <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?> <img src="<?php echo ot_get_option('site_logo'); ?>" alt=""></a></h1>
-      <p class="description"><?php bloginfo('description'); ?></p>
-    </header>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- MENU -->
+        <?php 
+          if ( function_exists( 'has_nav_menu' ) && has_nav_menu( 'primary-menu' ) ) {
+            $args = array(
+              'theme_location' => 'primary-menu',
+              'container'      => false,
+              'menu'           => 'primary-menu',                      
+              'depth'          => 2,
+              'menu_class'     => 'nav navbar-nav',
+              'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
+              'walker'         => new wp_bootstrap_navwalker()
+            );
+            wp_nav_menu( $args );
+          };  
+        ?>  
+        <?php get_search_form(); ?>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div><!-- navbar-default -->
+  <div id="container" class="container">    
 
-<!-- MENU -->
-<?php 
-  if ( function_exists( 'has_nav_menu' ) && has_nav_menu( 'primary-menu' ) ) {
-    $args = array(
-      'theme_location' => 'primary-menu',
-      'container'      => false,
-      'menu'           => 'primary-menu',                      
-      'depth'          => 2,
-      'menu_class'     => 'nav navbar-nav',
-      'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
-      'walker'         => new wp_bootstrap_navwalker()
-    );
-    wp_nav_menu( $args );
-  };  
-?>  
+
 <!-- END of MENU -->
 <?php dynamic_sidebar( 'primary' ); ?>

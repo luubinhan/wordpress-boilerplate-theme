@@ -12,7 +12,7 @@ class Dev_Blog extends WP_Widget {
 			
 	function __construct() {
     	$widget_ops = array(
-			'classname'   => 'widget_contact', 
+			'classname'   => 'widget_blog', 
 			'description' => __('Dev :: Blog')
 		);
 		parent::__construct( false, __( 'Dev :: Blog', '' ), $widget_ops );    	
