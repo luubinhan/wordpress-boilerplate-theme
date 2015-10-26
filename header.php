@@ -89,4 +89,3 @@
 
 
 <!-- END of MENU -->
-<?php dynamic_sidebar( 'primary' ); ?>

@@ -371,3 +371,34 @@ function the_excerpt_max_charlength($charlength) {
     echo $excerpt;
   }
 }
+
+/* Echo wrapper for blog post
+-------------------------------------------------------------- */
+
+function the_open_wrapper() {
+  echo "<div class='row row-posts'>";
+}
+add_action('before_blog_post','the_open_wrapper' );
+
+function the_close_wrapper() {
+  echo "</div>";
+}
+add_action('after_blog_post','the_close_wrapper' );
+
+/* Custom number of posts to show
+-------------------------------------------------------------- */
+function filter_post_per_page($query) {
+
+  /*if( $query->is_main_query() && ($query->query['post_type'] != 'nav_menu_item') && isset($query->queried_object_id) &&  !empty (ot_get_option('number_of_posts_blog') ) ) {*/
+  if ($query->is_main_query() && isset($query->queried_object_id) && !empty(ot_get_option('number_of_posts_blog')) ) {
+    
+    $query->set( 'posts_per_archive_page', ot_get_option('number_of_posts_blog') );
+    $query->set( 'posts_per_page', ot_get_option('number_of_posts_blog') );     
+    
+  }
+  return $query;
+}
+
+if ( !is_admin()) {
+  add_filter( 'pre_get_posts', 'filter_post_per_page',10,3 );  
+}

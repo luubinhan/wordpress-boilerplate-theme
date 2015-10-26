@@ -29,19 +29,23 @@ function custom_theme_options() {
     'sections'        => array( 
         array(
             'id'          => 'section_general',
-            'title'       => __( 'General', 'theme-options' )
+            'title'       => __( 'General'  )
         ),      
         array(
             'id'          => 'section_contact',
-            'title'       => __( 'Contact Info', 'theme-options' )
+            'title'       => __( 'Contact Info'  )
+        ),
+        array(
+            'id'          => 'section_blog',
+            'title'       => __( 'Blog'  )
         ),
         array(
             'id'          => 'section_footer',
-            'title'       => __( 'Footer', 'theme-options' )
+            'title'       => __( 'Footer'  )
         ),        
         array(
             'id'          => 'section_social',
-            'title'       => __( 'Social Links', 'theme-options' )
+            'title'       => __( 'Social Links'  )
         )
       
     ),
@@ -64,7 +68,7 @@ function custom_theme_options() {
       ),
       array(
         'id'          => 'site_logo',
-        'label'       => __( 'Logo', 'theme-options' ),
+        'label'       => __( 'Logo'  ),
         'desc'        => sprintf(''),
         'std'         => '',
         'type'        => 'upload',
@@ -80,51 +84,92 @@ function custom_theme_options() {
       // ====== CONTACT ======
       array(
         'id'          => 'contact_adrress',
-        'label'       => __( 'Adrress', 'theme-options' ),        
+        'label'       => __( 'Adrress'  ),        
         'type'        => 'text',
         'section'     => 'section_contact',        
         'operator'    => 'and'
       ),
       array(
         'id'          => 'contact_email',
-        'label'       => __( 'Email', 'theme-options' ),        
+        'label'       => __( 'Email'  ),        
         'type'        => 'text',
         'section'     => 'section_contact',
         'operator'    => 'and'
       ),
       array(
         'id'          => 'contact_phone',
-        'label'       => __( 'Phone', 'theme-options' ),        
+        'label'       => __( 'Phone'  ),        
         'type'        => 'text',
         'section'     => 'section_contact',
         'operator'    => 'and'
       ),
       array(
         'id'          => 'contact_fax',
-        'label'       => __( 'Fax', 'theme-options' ),        
+        'label'       => __( 'Fax'  ),        
         'type'        => 'text',
         'section'     => 'section_contact',
+        'operator'    => 'and'
+      ),
+      // ====== BLOG ====== 
+      array(
+        'id'          => 'thumbnail_on_off',
+        'label'       => __( 'Thumbnail Preview' ),
+        'desc'        => __( 'Display thumbnail preview for posts' ) ,
+        'std'         => 'on',
+        'type'        => 'on-off',
+        'section'     => 'section_blog',     
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'columns_blog',
+        'label'       => __( 'Columns' ),
+        'desc'        => __( 'Set how many columns to display' ),     
+        'std'         => '1',    
+        'type'        => 'numeric-slider',
+        'section'     => 'section_blog',        
+        'min_max_step'=> '1,4,1',        
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'number_of_posts_blog',
+        'label'       => __( 'Number of posts' ),
+        'desc'        => __( 'Set how many posts to display' ),    
+        'std'         => '10',    
+        'type'        => 'numeric-slider',
+        'section'     => 'section_blog',        
+        'min_max_step'=> '1,20,1',        
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'excerpt_length',
+        'label'       => __( 'Excerpt Length' ),
+        'desc'        => __( 'Set the excerpt length' ),    
+        'std'         => '150',    
+        'type'        => 'numeric-slider',
+        'section'     => 'section_blog',        
+        'min_max_step'=> '100,400,20',        
         'operator'    => 'and'
       ),
       // ====== FOOTER ======
       array(
         'id'          => 'footer_left',
-        'label'       => __( 'Text on left side', 'theme-options' ),     
+        'label'       => __( 'Text on left side'  ),     
         'type'        => 'textarea',
         'section'     => 'section_footer',        
         'operator'    => 'and'
       ),   
       array(
         'id'          => 'footer_right',
-        'label'       => __( 'Text on right side', 'theme-options' ),     
+        'label'       => __( 'Text on right side'  ),     
         'type'        => 'textarea',
         'section'     => 'section_footer',        
         'operator'    => 'and'
       ),   
+      
       // ====== SOCIAL ======  
       array(
         'id'          => 'mystyle_social_links',
-        'label'       => __( 'Social Links', 'theme-options' ),
+        'label'       => __( 'Social Links'  ),
         'desc'        => '',
         'std'         => '',
         'type'        => 'social-links',

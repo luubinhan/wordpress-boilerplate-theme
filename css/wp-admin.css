@@ -648,8 +648,8 @@ div.updated {
 	}
 }
 
-/* OPTION TREE */
-
+/* Option Tree
+-------------------------------------------------------------- */
 /* -------------------------------------------------- 
   :: OptionTree Font
   ---------------------------------------------------*/
@@ -2193,10 +2193,11 @@ a:focus {
 .format-setting.wide-desc .format-setting-inner {
 	width: 100%;
 }
-.format-setting .description {
+#option-tree-settings-api .format-setting .description {
 	float: right;
 	padding: 5px 0;
 	width: 35%;
+	color: #58666e;
 }
 .format-setting.no-desc > .description,
 .format-setting.wide-desc .description {
@@ -2935,22 +2936,21 @@ select.option-tree-ui-select option {
 .ot-numeric-slider.ui-slider-horizontal {
 	height: 11px;
 }
-.ot-numeric-slider.ui-slider .ui-slider-handle {
-	border: 1px solid #000;
+#page-ot_theme_options .ot-numeric-slider.ui-slider .ui-slider-handle {
+	border: 1px solid #00A5B6;
 	color: #555;
 	cursor: pointer;
 	display: block;
 	height: 27px;
-	margin: -9px -8px;
+	margin: -5px -8px;
 	outline: 0;
 	position: absolute;
 	width: 16px;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 rgba(0, 0, 0, .08);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 rgba(0, 0, 0, .08);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 rgba(0, 0, 0, .08);
+	box-shadow: none;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	background: #00A5B6;
 }
 
 /* default */
@@ -4445,6 +4445,34 @@ input.option-tree-ui-input:focus {
 #option-tree-settings-api > .ui-tabs {
 	border: none;
 }
+
+#page-ot_theme_options .ui-widget-header {
+	background: none;
+}
+#page-ot_theme_options .ui-state-default,
+#page-ot_theme_options.ui-widget-content .ui-state-default,
+#page-ot_theme_options .ui-widget-header .ui-state-default { 
+	background: none;
+}
+#page-ot_theme_options .ui-tabs .ui-tabs-nav li {
+	float: none;
+}
+#page-ot_theme_options .wrap.settings-wrap .ui-tabs-nav li {
+	border-radius: 0;
+}
+#page-ot_theme_options .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+	float: none;
+}
+#page-ot_theme_options .ui-widget-header {
+	border: none;
+}
+#page-ot_theme_options .option-tree-ui-buttons {
+	box-shadow: none;
+	margin-left: 173px;
+	margin-right: -17px;
+}
+
+/* Option Tree -------------------------------------------- */
 input[type="checkbox"] {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
