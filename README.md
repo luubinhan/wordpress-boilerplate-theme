@@ -15,8 +15,6 @@ Lasted Update 12-10-2015
 
 # Recommend Plugins
 
-# Bootstrap Version 3.5.5
-
 * Product filter: YITH WooCommerce Ajax Product Filter, https://wordpress.org/plugins/yith-woocommerce-ajax-navigation/
 * Front-End Login: Ultimate member, https://wordpress.org/plugins/ultimate-member/
 
