@@ -27,6 +27,7 @@
       // = REGISTER STYLESHEET =
       wp_enqueue_style( "bootstrap-style", "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" );       
       wp_enqueue_style( "style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style.css" ); 
+      wp_enqueue_style( "style-responsive", $GLOBALS["TEMPLATE_RELATIVE_URL"]."style-responsive.css" ); 
     ?>
     
 

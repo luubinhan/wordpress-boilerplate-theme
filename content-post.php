@@ -31,7 +31,8 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
   		<h2 class="heading-post"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		<div class="post-meta">
 			<div class="post-date">
-				<time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time>
+				<?php $date_format = get_option( 'date_format' ); ?>
+            	<time datetime="<?php the_time('Y-m-d')?>"><?php the_time($date_format); ?></time>  
 			</div> <!-- post-date -->
 			<div class="post-category">
 				<?php the_category(' | ') ?>			
