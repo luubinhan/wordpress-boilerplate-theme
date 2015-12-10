@@ -40,7 +40,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 		</div> <!-- post-meta -->
 		<div class="post-excert">		
 			<?php 
-			$max_length = !empty( ot_get_option('excerpt_length') ) ? ot_get_option('excerpt_length') : 250;
+			$max_length = ot_get_option('excerpt_length');
 			the_excerpt_max_charlength($max_length); 
 			?>
 		</div>

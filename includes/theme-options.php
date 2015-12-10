@@ -131,16 +131,6 @@ function custom_theme_options() {
         'operator'    => 'and'
       ),
       array(
-        'id'          => 'number_of_posts_blog',
-        'label'       => __( 'Number of posts' ),
-        'desc'        => __( 'Set how many posts to display' ),    
-        'std'         => '10',    
-        'type'        => 'numeric-slider',
-        'section'     => 'section_blog',        
-        'min_max_step'=> '1,20,1',        
-        'operator'    => 'and'
-      ),
-      array(
         'id'          => 'excerpt_length',
         'label'       => __( 'Excerpt Length' ),
         'desc'        => __( 'Set the excerpt length' ),    
