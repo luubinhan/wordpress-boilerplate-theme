@@ -6,7 +6,8 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 ?>
 <?php  
 	$class_name = 'item-post clearfix ';
-	switch (ot_get_option('columns_blog')) {
+	$cols_num = ot_get_option('columns_blog');
+	switch ($cols_num) {
 		case '1':
 			$class_name .= 'col-xs-12 col-sm-12 col-md-12 col-lg-12';
 			break;		
@@ -22,7 +23,8 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 	}
 ?>
 <div <?php post_class($class_name) ?> id="post-<?php the_ID(); ?>"> 
-	<?php if (has_post_thumbnail() && ot_get_option('thumbnail_on_off') == 'on'): ?>
+	<?php $thumbnail_on_off = ot_get_option('thumbnail_on_off'); ?>
+	<?php if (has_post_thumbnail() && $thumbnail_on_off == 'on'): ?>
 		<div class="the-post-thumbnail">
 			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</div>

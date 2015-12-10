@@ -3,8 +3,9 @@
 if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
     die ( 'You do not have sufficient permissions to access this page!' );
 }
+$partners_gallery = ot_get_option('partners_gallery');
 ?>
-<?php if ( !empty(ot_get_option('partners_gallery')) ): ?>
+<?php if ( !empty($partners_gallery) ): ?>
 	<nav id="service_nav">
 		<?php  
 			
