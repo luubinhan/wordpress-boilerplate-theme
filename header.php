@@ -69,7 +69,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <!-- MENU -->
         <?php 
-          if ( function_exists( 'has_nav_menu' ) && has_nav_menu( 'primary-menu' ) ) {
+          if ( has_nav_menu( 'primary-menu' ) ) {
             $args = array(
               'theme_location' => 'primary-menu',
               'container'      => false,

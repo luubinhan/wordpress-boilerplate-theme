@@ -4,16 +4,9 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
     die ( 'You do not have sufficient permissions to access this page!' );
 }
 
-$numberOfPosts = $instance["numberOfPosts"]; 
+
 $columns = $instance["columns"]; 
 
-$args = array(	
-	'post_type'      => 'post',
-	'post_status'    => 'publish',
-	'order'          => 'DESC',
-	'orderby'        => 'date',
-	'posts_per_page' => $numberOfPosts,
-);
 
 $class_name = "widget-li ";
 
@@ -31,8 +24,20 @@ switch ($columns) {
 		$class_name .= "col-xs-6 col-sm-3 col-md-2";
 		break;	
 }
+$query = new WP_Query( array(
+	'post_type'				=> array( 'post' ),
+	'showposts'				=> $instance['posts_num'],
+	'cat'					=> $instance['posts_cat_id'],
+	'ignore_sticky_posts'	=> true,
+	'orderby'				=> $instance['posts_orderby'],
+	'order'					=> 'dsc',
+	'date_query' => array(
+		array(
+			'after' => $instance['posts_time'],
+		),
+	),
+) );
 
-$query = new WP_Query( $args );
 
 if ( $query->have_posts() ) :
 

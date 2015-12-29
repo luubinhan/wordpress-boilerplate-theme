@@ -4420,6 +4420,9 @@ input.option-tree-ui-input:focus {
 #page-ot_theme_options > h2 {
 	background-color: #dde6e9;
 	margin-bottom: 0;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 10px 20px 10px;
 }
 #option-tree-options-layouts-form {
 	display: none;
@@ -4468,8 +4471,9 @@ input.option-tree-ui-input:focus {
 }
 #page-ot_theme_options .option-tree-ui-buttons {
 	box-shadow: none;
-	margin-left: 173px;
-	margin-right: -17px;
+	margin-left: 170px;
+    margin-right: -20px;
+    border-radius: 0;
 }
 
 /* Option Tree -------------------------------------------- */
@@ -4693,4 +4697,8 @@ div#widgets-right .widget-top:hover {
 	right: 0;
 	top: 0;
 	z-index: 99999;
+}
+
+.widget-admin-dev select {
+	width: 100%;
 }
