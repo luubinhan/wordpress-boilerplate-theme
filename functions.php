@@ -115,6 +115,31 @@ add_filter( 'pre_site_transient_update_core', create_function( '$a', "return nul
 remove_action ('load-update-core.php', 'wp_update_plugins');
 add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );
 
+/*  WordPress add class to parent element if has submenu
+-------------------------------------------------------------- */
+
+if ( ! function_exists( 'alx_setup' ) ) {
+  
+  function alx_setup() {
+    // Enable title tag
+    add_theme_support( 'title-tag' );
+    
+    // Enable automatic feed links
+    add_theme_support( 'automatic-feed-links' );
+    
+    // Enable featured image
+    add_theme_support( 'post-thumbnails' );    
+    
+    // Thumbnail sizes
+    add_image_size( 'thumb-small', 160, 160, true );
+    add_image_size( 'thumb-standard', 320, 320, true );
+    add_image_size( 'thumb-medium', 520, 245, true );
+    add_image_size( 'thumb-large', 720, 340, true );
+    
+  }
+  
+}
+add_action( 'after_setup_theme', 'alx_setup' );
 
 /*  WordPress add class to parent element if has submenu
 -------------------------------------------------------------- */
