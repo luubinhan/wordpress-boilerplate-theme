@@ -13,6 +13,7 @@ $includes = array(
   //'includes/custom-post-type/cpt-portfolio.php',
   //'includes/custom-post-type/cpt-quote.php',
   'includes/wp-bootstrap-navwalker.php',
+  'includes/class-tgm-plugin-activation.php',
   //'includes/register-acf-field.php',     // Theme widgets
   //'includes/register-custom-post-type.php',     // Theme widgets
 );
@@ -279,7 +280,7 @@ if ( function_exists( 'wp_nav_menu') ) {
 
 /* TGM Required
 -------------------------------------------------------------- */
-require_once dirname( __FILE__ ) . '\includes\class-tgm-plugin-activation.php';
+
 add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 
 function my_theme_register_required_plugins() {
