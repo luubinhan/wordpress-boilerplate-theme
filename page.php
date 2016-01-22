@@ -16,5 +16,5 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
     </div><!-- page-container -->
 
   <?php endwhile; endif; ?>   
-
+  <?php dynamic_sidebar('sidebar-1'); ?>
 <?php get_footer(); ?>
