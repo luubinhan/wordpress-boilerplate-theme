@@ -4702,3 +4702,9 @@ div#widgets-right .widget-top:hover {
 .widget-admin-dev select {
 	width: 100%;
 }
+.field.field_type-message{
+	background: #D9EDF7;
+}
+#wpadminbar ul li#wp-admin-bar-view-store a {
+	color: #000;
+}
