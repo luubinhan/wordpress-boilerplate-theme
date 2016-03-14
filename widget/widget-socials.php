@@ -1,9 +1,7 @@
 <?php
-// File Security Check
-if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-    die ( 'You do not have sufficient permissions to access this page' );
-}
-?>
+if ( ! defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}?>
 <?php
 /*---------------------------------------------------------------------------------*/
 /* Recent Products Widget */
