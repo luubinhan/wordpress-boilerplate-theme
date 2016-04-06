@@ -410,3 +410,25 @@ function the_close_wrapper() {
   echo "</div>";
 }
 add_action('after_blog_post','the_close_wrapper' );
+
+// Login Background
+function mystyle_custom_login_background() {
+
+  // Background
+  $url_bg = ot_get_option('background_login');
+  if ($url_bg) {
+    echo sprintf('<style type="text/css">body.login {background-image:url(%s);}</style>', $url_bg);
+  }
+  // Logo
+  $url_logo = ot_get_option('logo_login');
+  if ($url_logo) {
+    echo sprintf('<style type="text/css">body.login h1 {background-image:url(%s);}</style>', $url_logo); 
+  }
+  
+  // Logo
+  $url_color = ot_get_option('login_colorpicker');
+  if ($url_color) {
+    echo sprintf('<style type="text/css">body.login{background-color:%s;}</style>', $url_color); 
+  }
+}
+add_filter( 'login_head', 'mystyle_custom_login_background' );

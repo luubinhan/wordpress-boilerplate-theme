@@ -1,8 +1,28 @@
-.login h1 a{
-	background: url("../images/logo.png") no-repeat center top ;
-	width: 150px;
-	background-size: 100% auto; 
-	-webkit-background-size: 100% auto; 
+body.login {
+	background-position: center top;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+#backtoblog,
+#nav {
+	display: none;
+}
+body.login h1 {	
+	background-position: center top;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+	
+	background-repeat: no-repeat;
+	margin-bottom: 0;
+	height: 60px;
+	margin-left: 50px;
+	margin-right: 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body.login h1 a{
+	display: none;
 }
 @media only screen and (max-width: 640px){
 	.login h1 a{

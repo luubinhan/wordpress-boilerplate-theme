@@ -46,6 +46,10 @@ function custom_theme_options() {
         array(
             'id'          => 'section_social',
             'title'       => __( 'Social Links'  )
+        ),
+        array(
+            'id'          => 'section_login',
+            'title'       => __( 'Login'  )
         )
       
     ),
@@ -171,7 +175,33 @@ function custom_theme_options() {
         'class'       => '',
         'condition'   => '',
         'operator'    => 'and'
-      )
+      ),
+      // ====== LOGIN ======  
+      array(
+        'id'          => 'logo_login',
+        'label'       => __( 'Logo'  ),
+        'desc'        => sprintf('Logo display at login page'),
+        'type'        => 'upload',
+        'section'     => 'section_login',
+        'operator'    => 'and'
+      ),  
+      array(
+        'id'          => 'background_login',
+        'label'       => __( 'Background image'),
+        'desc'        => sprintf('Background for login page'),
+        'type'        => 'upload',
+        'section'     => 'section_login',
+        'operator'    => 'and'
+      ),  
+      array(
+        'id'          => 'login_colorpicker',
+        'label'       => 'Background color',
+        'desc'        => sprintf('Background for login page'),
+        'std'         => '',
+        'type'        => 'colorpicker',
+        'section'     => 'section_login',
+        'operator'    => 'and'
+      ),
     )
   );
   
