@@ -9,12 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*-----------------------------------------------------------------------------------*/
 
 $widgets = array(							
-				'widget/widget-services.php',
-				'widget/widget-socials.php',
-				'widget/widget-contact.php',
-				'widget/widget-blog.php',
-
-				);
+	'widget/widget-services.php',
+	'widget/widget-socials.php',
+	'widget/widget-contact.php',
+	'widget/widget-blog.php',
+	'widget/widget-recent-post-slider.php',
+);
 			
 foreach ( $widgets as $w ) {
 	locate_template( $w, true );

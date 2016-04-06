@@ -4708,3 +4708,73 @@ div#widgets-right .widget-top:hover {
 #wpadminbar ul li#wp-admin-bar-view-store a {
 	color: #000;
 }
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.widget-col-1 {
+	float: left;
+	width: 48%;
+}
+.widget-col-2 {
+	float: right;
+	width: 48%;
+}
+.design-col {
+	float: left;
+	width: 48%;
+	
+	height: 131px;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+	margin-bottom: 15px;
+	margin-top: 20px;
+	background-position: left bottom;
+	position: relative;
+}
+.design-col input[type="radio"] {
+
+}
+.design-col .input-name {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	display: block;
+}
+div .design-col:nth-child(2n) {
+	float: right;
+}
+.design-col.design-1 {
+	background: url("../images/layout/design-1.jpg") no-repeat;
+}
+.design-col.design-2 {
+	background: url("../images/layout/design-2.jpg") no-repeat;
+}
+.design-col.design-3 {
+	background: url("../images/layout/design-3.jpg") no-repeat;
+}
+.design-col.design-4 {
+	background: url("../images/layout/design-4.jpg") no-repeat;
+}
+.design-col.design-5 {
+	background: url("../images/layout/design-5.jpg") no-repeat;
+}
+.design-col.design-6 {
+	background: url("../images/layout/design-6.jpg") no-repeat;
+}
+.design-col.design-7 {
+	background: url("../images/layout/design-7.jpg") no-repeat;
+}
+.design-col.design-8 {
+	background: url("../images/layout/design-8.jpg") no-repeat;
+}
+.design-col.design-9 {
+	background: url("../images/layout/design-9.jpg") no-repeat;
+}
+.design-col.design-10 {
+	background: url("../images/layout/design-10.jpg") no-repeat;
+}
+.slider-option-widget {
+	position: relative;
+}
