@@ -3,11 +3,13 @@ wordpress-boilerplate-theme
 
 Customized by luubinhan1989@gmail.com
 
-Lasted Update 12-10-2015  
+# 2016-04-07
 
-# WP Plugins
+* Add recent post slider
 
-* Option Tree 2.5.5
+# Plugins included in "Theme mode"
+
+* Option Tree 2.6.0
 
 # JS
 

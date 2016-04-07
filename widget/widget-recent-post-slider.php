@@ -38,32 +38,42 @@ class Dev_Recent_Posts_Slider extends WP_Widget {
 	}
 	
 	function update( $new,$old ) {
-		$instance = $old;
-		$instance['title'] = strip_tags($new['title']);
+		$instance                      = $old;
+		$instance['title']             = strip_tags($new['title']);
 		// Posts
-		$instance['posts_thumb'] = $new['posts_thumb']?1:0;
-		$instance['posts_category'] = $new['posts_category']?1:0;
-		$instance['posts_date'] = $new['posts_date']?1:0;
-		$instance['posts_num'] = strip_tags($new['posts_num']);
-		$instance['layout'] = strip_tags($new['layout']);
-		$instance['posts_cat_id'] = strip_tags($new['posts_cat_id']);
-		$instance['posts_orderby'] = strip_tags($new['posts_orderby']);
-		$instance['posts_time'] = strip_tags($new['posts_time']);
+		$instance['posts_thumb']       = $new['posts_thumb']?1:0;
+		$instance['posts_category']    = $new['posts_category']?1:0;
+		$instance['posts_date']        = $new['posts_date']?1:0;
+		$instance['dotsv']             = $new['dotsv']?1:0;
+		$instance['autoplayv']         = $new['autoplayv']?1:0;
+		$instance['arrowsv']           = $new['arrowsv']?1:0;
+		$instance['speedv']            = $new['speedv'];
+		$instance['autoplayIntervalv'] = $new['autoplayIntervalv'];
+		$instance['posts_num']         = strip_tags($new['posts_num']);
+		$instance['layout']            = strip_tags($new['layout']);
+		$instance['posts_cat_id']      = strip_tags($new['posts_cat_id']);
+		$instance['posts_orderby']     = strip_tags($new['posts_orderby']);
+		$instance['posts_time']        = strip_tags($new['posts_time']);
         return $instance;
 	}
 	
 	function form( $instance ) {
 		// Default widget settings
 		$defaults = array(
-			'title'          => '',
-			'posts_thumb'    => 1,
-			'posts_category' => 1,
-			'posts_date'     => 1,
-			'layout'         => 1,
-			'posts_num'      => '4',
-			'posts_cat_id'   => '0',
-			'posts_orderby'  => 'date',
-			'posts_time'     => '0',
+			'title'             => '',
+			'posts_thumb'       => 1,
+			'posts_category'    => 1,
+			'posts_date'        => 1,
+			'layout'            => 1,
+			'dotsv'             => 1,
+			'autoplayv'         => 1,
+			'arrowsv'           => 1,
+			'posts_num'         => '4',
+			'speedv'            => 500,
+			'autoplayIntervalv' => 500,
+			'posts_cat_id'      => '0',
+			'posts_orderby'     => 'date',
+			'posts_time'        => '0',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );		
 ?>
@@ -118,8 +128,36 @@ class Dev_Recent_Posts_Slider extends WP_Widget {
 			</div><!-- col -->
 		</div>		
 		<hr>
+		<label><strong><?php _e('Slider options'); ?></strong></label>
+		<div class="clearfix">
+			<div class="widget-col-1">
+				<p>
+					<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('dotsv') ); ?>" name="<?php echo esc_attr( $this->get_field_name('dotsv') ); ?>" <?php checked( (bool) $instance["dotsv"], true ); ?>>
+					<label for="<?php echo esc_attr( $this->get_field_id('dotsv') ); ?>">Show dot indicators</label>
+				</p>
+				<p>
+					<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('arrowsv') ); ?>" name="<?php echo esc_attr( $this->get_field_name('arrowsv') ); ?>" <?php checked( (bool) $instance["arrowsv"], true ); ?>>
+					<label for="<?php echo esc_attr( $this->get_field_id('arrowsv') ); ?>">Show arrows (Prev/Next Arrows)</label>
+				</p>
+				<p>
+					<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('autoplayv') ); ?>" name="<?php echo esc_attr( $this->get_field_name('autoplayv') ); ?>" <?php checked( (bool) $instance["autoplayv"], true ); ?>>
+					<label for="<?php echo esc_attr( $this->get_field_id('autoplayv') ); ?>">Enables Autoplay</label>
+				</p>
+			</div>
+			<div class="widget-col-2">
+				<p>
+					<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("speedv") ); ?>">Speed</label>
+					<input style="width:40%;" id="<?php echo esc_attr( $this->get_field_id("speedv") ); ?>" name="<?php echo esc_attr( $this->get_field_name("speedv") ); ?>" type="number" value="<?php echo absint($instance["speedv"]); ?>" size='6' min="300" max="2000" step="100" />
+				</p>
+				<p>
+					<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("autoplayIntervalv") ); ?>">Autoplay Speed (milliseconds)</label>
+					<input style="width:40%;" id="<?php echo esc_attr( $this->get_field_id("autoplayIntervalv") ); ?>" name="<?php echo esc_attr( $this->get_field_name("autoplayIntervalv") ); ?>" type="number" value="<?php echo absint($instance["autoplayIntervalv"]); ?>" size='6' min="300" max="2000" step="100" />
+				</p>
+			</div>
+		</div>
+		<hr>
 		<p>
-			<label for="<?php echo $this->get_field_id('layout'); ?>"><?php _e('Layout'); ?></label>
+			<label for="<?php echo $this->get_field_id('layout'); ?>"><strong><?php _e('Layout'); ?></strong></label>
 			
 			<div class="clearfix slider-option-widget">
 			<?php
@@ -136,4 +174,12 @@ class Dev_Recent_Posts_Slider extends WP_Widget {
 }
 
 register_widget( 'Dev_Recent_Posts_Slider' );
+
+/* 
+	Enqueue Script And CSS
+	Docs: https://github.com/kenwheeler/slick
+	Demo: http://kenwheeler.github.io/slick/
+*/
+wp_enqueue_style( "slick-style", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css","style" ); 
+wp_enqueue_script( "slick-script", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js",array("jquery", "main" ),"", true ); 
 ?>

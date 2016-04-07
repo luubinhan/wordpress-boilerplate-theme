@@ -4713,6 +4713,9 @@ div#widgets-right .widget-top:hover {
 	display: block;
 	clear: both;
 }
+
+/* WIDGET RECENT POST SLIDER 
+======================================== */
 .widget-col-1 {
 	float: left;
 	width: 48%;
@@ -4778,3 +4781,4 @@ div .design-col:nth-child(2n) {
 .slider-option-widget {
 	position: relative;
 }
+/* WIDGET RECENT POST SLIDER ============= */

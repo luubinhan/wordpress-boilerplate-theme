@@ -4,25 +4,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$columns = $instance["columns"]; 
+$layout            = $instance["layout"]; 
+$dotsv             = $instance["dotsv"];
+$arrowsv           = $instance["arrowsv"];
+$speedv            = $instance["speedv"];
+$autoplayv         = $instance["autoplayv"];
+$autoplayIntervalv = $instance["autoplayIntervalv"];
+$showCategory = $instance["posts_category"];
+$showDate = $instance["posts_date"];
+$showThumb = $instance["posts_thumb"];
 
-
-$class_name = "widget-li ";
-
-switch ($columns) {
-	case 2:
-		$class_name .= "col-xs-12 col-sm-6 col-md-6";
-		break;
-	case 3:
-		$class_name .= "col-xs-12 col-sm-6 col-md-3";
-		break;
-	case 4:
-		$class_name .= "col-xs-12 col-sm-6 col-md-4";
-		break;
-	case 6:
-		$class_name .= "col-xs-6 col-sm-3 col-md-2";
-		break;	
-}
 $query = new WP_Query( array(
 	'post_type'				=> array( 'post' ),
 	'showposts'				=> $instance['posts_num'],
@@ -41,24 +32,86 @@ $query = new WP_Query( array(
 if ( $query->have_posts() ) :
 
 ?>
-<div class="container">
+<div class="recent-post-slider <?php echo $layout; ?>">
 	<ul class="ul-posts row nav">
-		<?php while ( $query->have_posts() ): $query->the_post(); ?>
-			<li class="<?php echo $class_name; ?>" id="post-<?php the_ID(); ?>">				
-				<h4 class="post-widget-caption"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-				<div class="post-meta">
-					<div class="post-date">
-						<time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('F jS, Y'); ?></time>
-					</div> <!-- post-date -->
-					<div class="post-category">
-			  			<?php the_category(' | '); ?>			
-			  		</div>
-		  		</div> <!-- post-meta -->
-				<div class="post-excert">
-					<?php the_excerpt_max_charlength(140); ?>
-				</div><!-- post-excert -->
-			</li>
-		<?php endwhile; wp_reset_query();?>
+		<?php 
+		while ( $query->have_posts() ): $query->the_post(); 
+			switch ($layout) {
+				case "design-1":
+					include( locate_template('widget/widget-recent-post-slider-design-1.php') );
+					break;
+				case "design-2":
+					include( locate_template('widget/widget-recent-post-slider-design-2.php') );
+					break;
+				case "design-3":
+					include( locate_template('widget/widget-recent-post-slider-design-3.php') );
+					break;
+				case "design-4":
+					include( locate_template('widget/widget-recent-post-slider-design-4.php') );
+					break;	
+				case "design-5":
+					include( locate_template('widget/widget-recent-post-slider-design-5.php') );
+					break;
+				case "design-6":
+					include( locate_template('widget/widget-recent-post-slider-design-6.php') );
+					break;
+				case "design-7":
+					include( locate_template('widget/widget-recent-post-slider-design-7.php') );
+					break;
+				case "design-8":
+					include( locate_template('widget/widget-recent-post-slider-design-8.php') );
+					break;
+				case "design-9":
+					include( locate_template('widget/widget-recent-post-slider-design-9.php') );
+					break;
+				case "design-10":
+					include( locate_template('widget/widget-recent-post-slider-design-10.php') );
+					break;
+			}
+		endwhile; 
+		wp_reset_query();?>
 	</ul>
-</div>
+</div><!-- recent-post-slider -->
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('.recent-post-slider.<?php echo $layout; ?>').slick({
+			dots: <?php echo $dotsv; ?>,
+			infinite: true,
+			arrows: <?php echo $arrowsv; ?>,
+			speed: <?php echo $speedv; ?>,
+			autoplay: <?php echo $autoplayv; ?>,						
+			autoplaySpeed: <?php echo $autoplayIntervalv; ?>,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			responsive: [
+				{
+				  breakpoint: 768,
+				  settings: {
+				    slidesToShow: 1,
+				    slidesToScroll: 1,
+				    infinite: true,
+				    dots: true
+				  }
+				},
+				{
+				  breakpoint: 640,
+				  settings: {
+				    slidesToShow: 1,
+				    slidesToScroll: 1
+				  }
+				},
+				{
+				  breakpoint: 480,
+				  settings: {
+				    slidesToShow: 1,
+				    slidesToScroll: 1
+				  }
+				}
+			]
+		});
+	});
+</script>
 <?php endif;  ?>
+
+

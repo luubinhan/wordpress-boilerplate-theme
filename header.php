@@ -36,7 +36,7 @@
       wp_enqueue_script( "modernizr", "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" ); 
       wp_enqueue_script( "bootstrap-script", "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js","jquery","", true ); 
       wp_enqueue_script( "parsley-script", "https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.3.5/parsley.min.js","jquery","", true ); 
-      wp_enqueue_script( "plugins", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/plugins.js","jquery","", true );
+      
       wp_enqueue_script( "main", $GLOBALS["TEMPLATE_RELATIVE_URL"]."js/main.js","jquery","", true );
       
     ?>
