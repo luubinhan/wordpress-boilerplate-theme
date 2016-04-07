@@ -14,6 +14,7 @@ $includes = array(
   //'includes/custom-post-type/cpt-quote.php',
   'includes/wp-bootstrap-navwalker.php',
   'includes/class-tgm-plugin-activation.php',
+  'includes/backend-hook.php',
   //'includes/register-acf-field.php',     // Theme widgets
   //'includes/register-custom-post-type.php',     // Theme widgets
 );
@@ -95,26 +96,14 @@ function wps_admin_bar() {
 }
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
-
-/* Disable Admin Bar for All Users Except for Administrators
--------------------------------------------------------------- */
-
-function remove_admin_bar() {
-  if (!current_user_can('administrator') && !is_admin()) {
-    show_admin_bar(false);
-  }
-}
-add_action('after_setup_theme', 'remove_admin_bar');
-
-
 /* DISABLE UPDATE CORE
 -------------------------------------------------------------- */
 
-remove_action ('load-update-core.php', 'wp_update_themes');
+/*remove_action ('load-update-core.php', 'wp_update_themes');
 add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
 
 remove_action ('load-update-core.php', 'wp_update_plugins');
-add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );
+add_filter ('pre_site_transient_update_plugins', create_function ('$a', "return null;") );*/
 
 /*  WordPress add class to parent element if has submenu
 -------------------------------------------------------------- */
@@ -432,3 +421,5 @@ function mystyle_custom_login_background() {
   }
 }
 add_filter( 'login_head', 'mystyle_custom_login_background' );
+
+

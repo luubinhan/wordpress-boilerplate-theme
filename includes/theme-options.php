@@ -48,8 +48,8 @@ function custom_theme_options() {
             'title'       => __( 'Social Links'  )
         ),
         array(
-            'id'          => 'section_login',
-            'title'       => __( 'Login'  )
+            'id'          => 'section_others',
+            'title'       => __( 'Others'  )
         )
       
     ),
@@ -74,17 +74,18 @@ function custom_theme_options() {
         'id'          => 'site_logo',
         'label'       => __( 'Logo'  ),
         'desc'        => sprintf(''),
-        'std'         => '',
         'type'        => 'upload',
         'section'     => 'section_general',
-        'rows'        => '',
-        'post_type'   => '',
-        'taxonomy'    => '',
-        'min_max_step'=> '',
-        'class'       => '',
-        'condition'   => '',
         'operator'    => 'and'
       ),    
+      array(
+        'id'          => 'site_favicon',
+        'label'       => __('Favicon'),
+        'desc'        => sprintf(''),
+        'type'        => 'upload',
+        'section'     => 'section_general',
+        'operator'    => 'and'
+      ),   
       // ====== CONTACT ======
       array(
         'id'          => 'contact_adrress',
@@ -176,13 +177,13 @@ function custom_theme_options() {
         'condition'   => '',
         'operator'    => 'and'
       ),
-      // ====== LOGIN ======  
+      // ====== Others ======  
       array(
         'id'          => 'logo_login',
         'label'       => __( 'Logo'  ),
         'desc'        => sprintf('Logo display at login page'),
         'type'        => 'upload',
-        'section'     => 'section_login',
+        'section'     => 'section_others',
         'operator'    => 'and'
       ),  
       array(
@@ -190,7 +191,7 @@ function custom_theme_options() {
         'label'       => __( 'Background image'),
         'desc'        => sprintf('Background for login page'),
         'type'        => 'upload',
-        'section'     => 'section_login',
+        'section'     => 'section_others',
         'operator'    => 'and'
       ),  
       array(
@@ -199,9 +200,28 @@ function custom_theme_options() {
         'desc'        => sprintf('Background for login page'),
         'std'         => '',
         'type'        => 'colorpicker',
-        'section'     => 'section_login',
+        'section'     => 'section_others',
         'operator'    => 'and'
       ),
+      array(
+        'id'          => 'show_admin_on_off',
+        'label'       => 'Show admin bar',
+        'desc'        => '',
+        'std'         => '',
+        'type'        => 'on-off',
+        'section'     => 'section_others',   
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'show_update_available',
+        'label'       => 'Show update available',
+        'desc'        => '',
+        'std'         => '',
+        'type'        => 'on-off',
+        'section'     => 'section_others',   
+        'operator'    => 'and'
+      ),
+      
     )
   );
   

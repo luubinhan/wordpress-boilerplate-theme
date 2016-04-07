@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo ot_get_option('site_favicon') ?>" type="image/x-icon">
     
     
     <?php 
