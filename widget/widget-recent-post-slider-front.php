@@ -5,14 +5,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 $layout            = $instance["layout"]; 
-$dotsv             = $instance["dotsv"];
-$arrowsv           = $instance["arrowsv"];
+$dotsv             = ( $instance["dotsv"] == 1 ) ? "true": "false";
+$arrowsv           = ( $instance["arrowsv"] == 1 ) ? "true": "false";
 $speedv            = $instance["speedv"];
-$autoplayv         = $instance["autoplayv"];
+$autoplayv         = ( $instance["autoplayv"] == 1 ) ? "true": "false";
 $autoplayIntervalv = $instance["autoplayIntervalv"];
-$showCategory = $instance["posts_category"];
-$showDate = $instance["posts_date"];
-$showThumb = $instance["posts_thumb"];
+$showCategory      = $instance["posts_category"];
+$showDate          = $instance["posts_date"];
+$showThumb         = $instance["posts_thumb"];
 
 $query = new WP_Query( array(
 	'post_type'				=> array( 'post' ),
@@ -33,7 +33,7 @@ if ( $query->have_posts() ) :
 
 ?>
 <div class="recent-post-slider <?php echo $layout; ?>">
-	<ul class="ul-posts row nav">
+
 		<?php 
 		while ( $query->have_posts() ): $query->the_post(); 
 			switch ($layout) {
@@ -70,7 +70,7 @@ if ( $query->have_posts() ) :
 			}
 		endwhile; 
 		wp_reset_query();?>
-	</ul>
+	
 </div><!-- recent-post-slider -->
 
 <script type="text/javascript">

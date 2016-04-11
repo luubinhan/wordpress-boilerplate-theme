@@ -1,6 +1,6 @@
 var MainJS = (function($){
 	function init() {
-		console.log(1);
+		
 	}
 
 

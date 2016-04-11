@@ -14,6 +14,7 @@ $includes = array(
   //'includes/custom-post-type/cpt-quote.php',
   'includes/wp-bootstrap-navwalker.php',
   'includes/class-tgm-plugin-activation.php',
+  'includes/frontend-hook.php',
   'includes/backend-hook.php',
   //'includes/register-acf-field.php',     // Theme widgets
   //'includes/register-custom-post-type.php',     // Theme widgets
@@ -393,12 +394,12 @@ function the_excerpt_max_charlength($charlength) {
 function the_open_wrapper() {
   echo "<div class='row row-posts'>";
 }
-add_action('before_blog_post','the_open_wrapper' );
+//add_action('before_blog_post','the_open_wrapper' );
 
 function the_close_wrapper() {
   echo "</div>";
 }
-add_action('after_blog_post','the_close_wrapper' );
+//add_action('after_blog_post','the_close_wrapper' );
 
 // Login Background
 function mystyle_custom_login_background() {

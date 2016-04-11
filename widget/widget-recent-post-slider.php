@@ -175,11 +175,5 @@ class Dev_Recent_Posts_Slider extends WP_Widget {
 
 register_widget( 'Dev_Recent_Posts_Slider' );
 
-/* 
-	Enqueue Script And CSS
-	Docs: https://github.com/kenwheeler/slick
-	Demo: http://kenwheeler.github.io/slick/
-*/
-wp_enqueue_style( "slick-style", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css","style" ); 
-wp_enqueue_script( "slick-script", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js",array("jquery", "main" ),"", true ); 
+
 ?>

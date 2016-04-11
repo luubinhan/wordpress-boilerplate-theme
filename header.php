@@ -43,13 +43,26 @@
     
     <!-- END of REGISTER JAVASCRIPT --> 
 
+    <?php  
+      /* 
+        Enqueue Script And CSS
+        Docs: https://github.com/kenwheeler/slick
+        Demo: http://kenwheeler.github.io/slick/
+      */
+      wp_enqueue_style( "slick-style", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css","style" ); 
+      wp_enqueue_style( "slick-theme-style", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css","style" ); 
+      wp_enqueue_style( "recent-post-style", $GLOBALS["TEMPLATE_RELATIVE_URL"]."css/recent-post-slider/recent-post-style.css","style" ); 
+       
+      wp_enqueue_script( "slick-script", "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js",array("jquery", "main" ),"", true ); 
+    ?>
+
     <!-- Wordpress Head Items -->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     
     <?php wp_head(); ?>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('mystyle'); ?>>
   <!--[if lt IE 8]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
   <![endif]-->
