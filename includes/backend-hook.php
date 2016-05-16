@@ -87,10 +87,10 @@ class Dev_Admin_Hooks
 			if ( $theroles == "off" ){
 				$show_admin_bar = false;
 				return false;
-			}
-			else{
+			}		
+			if ( current_user_can( 'manage_options' ) && $theroles == "on" ){
 				return true;
-			}
+			}	
 
 	}
 
