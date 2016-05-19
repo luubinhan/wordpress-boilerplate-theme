@@ -49,6 +49,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .sticky h2 {
   padding-top: 10px;
 }
+/* 404 
+================ */
+.boo-wrapper {
+  text-align: center;
+}
+.boo-wrapper .btn-light {
+  border: 1px solid #111;
+  color: #111;
+}
+.boo-wrapper p {
+  margin-bottom: 25px;
+}
+.boo-name {
+  
+  overflow: hidden;
+}
+.boo-hidden {
+  font-size: 170px;
+  line-height: 1;
+  color: #434343;
+  display: block;
+  position: relative;
+  top: 60px;
+}
+/* 404 ================ */
+
 html {
 }
 body {
