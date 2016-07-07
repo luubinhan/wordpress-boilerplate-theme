@@ -22,6 +22,24 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="<?php echo ot_get_option('site_favicon') ?>" type="image/x-icon">
     
+    <link rel="canonical" href="<?php the_permalink(); ?>" />
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="<?php the_title(); ?>">
+    <meta itemprop="description" content="<?php echo esc_html(get_the_excerpt()); ?>">
+    <meta itemprop="image" content="<?php the_post_thumbnail('thumbnail'); ?>">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:title" content="<?php the_title(); ?>">
+    <meta name="twitter:description" content="<?php echo esc_html(get_the_excerpt()); ?>">
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:image:src" content="<?php the_post_thumbnail('thumbnail'); ?>">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="<?php the_title(); ?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<?php the_permalink(); ?>" />
+    <meta property="og:image" content="<?php the_post_thumbnail('thumbnail'); ?>" />
+    <meta property="og:description" content="<?php echo esc_html(get_the_excerpt()); ?>" />
     
     <?php 
       // = REGISTER STYLESHEET =
