@@ -422,5 +422,10 @@ function mystyle_custom_login_background() {
   }
 }
 add_filter( 'login_head', 'mystyle_custom_login_background' );
-
-
+function get_current_user_role () {
+    global $current_user;
+    get_currentuserinfo();
+    $user_roles = $current_user->roles;
+    $user_role = array_shift($user_roles);
+    return $user_role;
+};
